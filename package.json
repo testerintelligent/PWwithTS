@@ -1,0 +1,22 @@
+{
+  "name": "playwrighttypescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js test ",
+    "posttest":"npx ts-node src/CucumberReport/report.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.45.1",
+    "@types/node": "^20.14.10",
+    "multiple-cucumber-html-reporter": "^3.6.2"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^10.8.0",
+    "ts-node": "^10.9.2"
+  }
+}

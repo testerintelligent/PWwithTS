@@ -1,15 +1,29 @@
+import { Page } from "@playwright/test";
 import { clickAndSendkeys, toClick } from "../../Helper/Actions";
 import { pageObject } from "../../Hooks/PageObjects"
 
-let loginPage={
+const PageLocators={
     usernameInputfield:"#user-name",
     passwordInputField:"#password",
     loginButton:"#login-button"
 }
-
-export function validLogin(){
-    clickAndSendkeys(loginPage.usernameInputfield,"standard_user");
-    clickAndSendkeys(loginPage.passwordInputField,"secret_sauce");
-    toClick(loginPage.loginButton);
+export class loginPage{
+    private page:Page;
+    constructor(page:Page){
+        this.page=page;
+    }
+    async navigate(){
+        await this.page.goto("https://www.saucedemo.com/v1/");
+    }
+    async enterUsername(){
+        await clickAndSendkeys(PageLocators.usernameInputfield,"standard_user");
+    }
+    async enterPassword(){
+        await clickAndSendkeys(PageLocators.passwordInputField,"secret_sauce");
+    }
+    async ClicklaunchButton(){
+       await toClick(PageLocators.loginButton);
+    }
 }
+
    

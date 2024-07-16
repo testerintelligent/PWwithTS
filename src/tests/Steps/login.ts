@@ -1,24 +1,24 @@
 import { Given,Then,When } from "@cucumber/cucumber";
+import { loginPage } from "../Pages/loginPage/loginPage";
 import { pageObject } from "../Hooks/PageObjects";
-import { validLogin } from "../Pages/loginPage/loginPage";
+let Loginpage:loginPage;
 
   Given('User navigate to the login page', async function () {
-    pageObject.page.waitForTimeout(3000);
-    pageObject.page.goto("https://www.saucedemo.com/v1/");
-    validLogin();
-    pageObject.page.waitForTimeout(10000);
+    Loginpage=new loginPage(pageObject.page);
+    await Loginpage.navigate();
   });
 
 
 
   When('Enter the username and password as {string} and {string}', async function (string, string2) {
-   console.log("hello world");
+    await Loginpage.enterUsername();
+    await Loginpage.enterPassword();
   });
 
 
 
   When('Click the submit button', async function () {
-    console.log("hello world");
+    await Loginpage.ClicklaunchButton();
   });
 
 

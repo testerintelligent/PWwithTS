@@ -7,22 +7,13 @@ let Loginpage:loginPage;
     Loginpage=new loginPage(pageObject.page);
     await Loginpage.navigate();
   });
-
-
-
-  When('Enter the username and password as {string} and {string}', async function (string, string2) {
-    await Loginpage.enterUsername();
-    await Loginpage.enterPassword();
+  When('Enter the username and password as {string} and {string}', async function (username, password) {
+    await Loginpage.enterUsername(username);
+    await Loginpage.enterPassword(password);
   });
-
-
-
   When('Click the submit button', async function () {
     await Loginpage.ClicklaunchButton();
   });
-
-
-
   Then('Verify the Home page', async function () {
-    console.log("hello world");
+    await Loginpage.verifyHomePageURL();
   });

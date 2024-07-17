@@ -1,0 +1,108 @@
+import { Page, expect } from "@playwright/test"
+import { assertURL, clickAndSendkeys, launchURL, sendkeys, sleep, toClick, waitSelector } from "../../Helper/Actions";
+
+const pageLocators={
+    usernameInputfield:"#user-name",
+    passwordInputField:"#password",
+    loginButton:"#login-button",
+    inventoryItem:"//div[@class='inventory_item_price']",
+    shoppingCartContainer:"//div[@id='shopping_cart_container']/a",
+    inventoryItemName:"//div[@class='inventory_item']/div/a/div",
+    myCartItems:"//div[@class='inventory_item_name']",
+    checkoutButton:"//a[@class='btn_action checkout_button']",
+    checkoutFirstName:"//input[@id='first-name']",
+    checkoutLastName:"//input[@id='last-name']",
+    checkoutPostalcode:"//input[@id='postal-code']",
+    cartContinueButton:"//input[@class='btn_primary cart_button']",
+    paymentInformation:"(//div[@class='summary_value_label'])[1]",
+    finishButton:"//a[@class='btn_action cart_button']"
+}
+
+export class addProducts{
+    private page:Page;
+    constructor(page:Page){
+        this.page=page;
+    }
+    
+    
+    async minPriceProduct(){
+       const products= await this.page.locator(pageLocators.inventoryItem).allTextContents();
+       let min:number=500;
+       let minindex:number=0;
+      for(let i=0;i<products.length;i++){
+        const price:string=products[i].slice(1,3);
+        const productPrice:number=parseInt(price,10);
+       
+        if(min>productPrice){
+            min=productPrice;
+            minindex=i+1;
+        }
+      }
+      await this.page.locator("(//div[@class='inventory_item']/div/button)["+minindex+"]").click();
+      const minProductName=await this.page.locator("(//div[@class='inventory_item']/div/a/div)["+minindex+"]").innerText();
+      await toClick(pageLocators.shoppingCartContainer);
+      console.log(" Minimum price product name is : "+minProductName);
+       }
+
+       async maxPriceProduct(){
+        const products= await this.page.locator(pageLocators.inventoryItem).allTextContents();
+        let max:number=0;
+        let maxindex:number=0;
+       for(let i=0;i<products.length;i++){
+         const price:string=products[i].slice(1,3);
+         const productPrice:number=parseInt(price,10);
+        
+         if(max<productPrice){
+             max=productPrice;
+             maxindex=i+1;
+         }
+       }
+       await this.page.locator("(//div[@class='inventory_item']/div/button)["+maxindex+"]").click();
+       const maxProductName=await this.page.locator("(//div[@class='inventory_item']/div/a/div)["+maxindex+"]").innerText();
+       await toClick(pageLocators.shoppingCartContainer);
+       console.log(" Maximum price product name is : "+maxProductName);
+        }
+
+
+       async verifyMyCartPageURL(){
+        const myCartPageUrl:string="https://www.saucedemo.com/v1/cart.html";
+        await assertURL(myCartPageUrl);
+       }
+       async verifyMycartProductItems(){
+        waitSelector(pageLocators.myCartItems);
+         const Productname = await this.page.locator(pageLocators.myCartItems).innerText();
+         expect(Productname).toContain('Sauce Labs ');
+       }
+       async clickCheckoutButton(){
+        await toClick(pageLocators.checkoutButton);
+       }
+       async verifyCheckoutPageURL(){
+        const checkoutPageUrl:string="https://www.saucedemo.com/v1/checkout-step-one.html";
+        await assertURL(checkoutPageUrl);
+       }
+       async checkoutInformation(){
+        await toClick(pageLocators.checkoutFirstName);
+        await sendkeys(pageLocators.checkoutFirstName,"magesh"); 
+        await toClick(pageLocators.checkoutLastName);
+        await sendkeys(pageLocators.checkoutLastName,"poopathi");
+        await clickAndSendkeys(pageLocators.checkoutPostalcode,"3456");
+        await toClick(pageLocators.cartContinueButton);
+       }
+       async overviewPageURL(){
+        const overviewPageUrl:string="https://www.saucedemo.com/v1/checkout-step-two.html";
+        await assertURL(overviewPageUrl);
+       }
+       async paymentInformation(){
+        waitSelector(pageLocators.paymentInformation);
+        const paymentID= await this.page.locator(pageLocators.paymentInformation).innerText();
+        console.log(" "+paymentID);
+       }
+       async clickFinishButton(){
+        waitSelector(pageLocators.finishButton);
+       await toClick(pageLocators.finishButton);
+       }
+       async verifyCheckoutCompletePage(){
+            const CheckoutCompletePage:string="https://www.saucedemo.com/v1/checkout-complete.html";
+            await assertURL(CheckoutCompletePage);
+       }
+    }

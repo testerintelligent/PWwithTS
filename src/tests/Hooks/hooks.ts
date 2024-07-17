@@ -13,19 +13,20 @@ Before(async function(){
     pages=await browser.newPage();
     pageObject.page=pages;
 });
-After(async function({pickle,result}) {
+After(async function(scenario) {
      //Failed ScreenShot
-    console.log(result?.status);
-    if(result?.status==Status.FAILED){
+   // console.log(scenario.result?.status);
+    if(scenario.result?.status==Status.FAILED){
        // setDefaultTimeout(2000);
-        const img=await pageObject.page.screenshot({path:`./test-results/Screenshots/${pickle.name}`,type:"png"});
+        const img=await pageObject.page.screenshot({path:`./test-results/Screenshots/${scenario.pickle.name}`,type:"png"});
         await this.attach(img,"image/png");
     }
-    console.log("Close Browser");
+    console.log("===============Close Browser==============");
+    //await  pageObject.page.close();
     await browser.close();
-//    pageObject.page.close();
+   
 //    context.close();
 });
-// AfterAll( function(){
-//      browser.close();
+// AfterAll(async function(){
+    
 // })

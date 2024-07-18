@@ -52,5 +52,5 @@ let Products:addProducts;
          });
 
          Then('User take final order confirmation screenshot', async function () {
-            console.log("Need to take screenShot...");
+            await Products.FinalScreenshot();
          });

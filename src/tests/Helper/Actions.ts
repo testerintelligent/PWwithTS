@@ -1,7 +1,14 @@
 import { pageObject } from "../Hooks/PageObjects";
+import { expect } from "@playwright/test";
 
+export async function launchURL(URL:string){
+    await pageObject.page.goto(URL);
+}
 export async function toClick(Webelement:string){
     await pageObject.page.locator(Webelement).click();
+}
+export async function sendkeys(Webelement:string,text:string){
+    await pageObject.page.locator(Webelement).fill(text);
 }
 export async function clickAndSendkeys(Webelement:string,text:string){
     await pageObject.page.locator(Webelement).click();
@@ -29,5 +36,12 @@ export async function mousedown(){
     await pageObject.page.mouse.down();
 }
 export async function sleep(time:number){
-    await pageObject.page.waitForTimeout(time);
+ pageObject.page.waitForTimeout(time);
+}
+export async function assertURL(URL:string){
+    const url =await pageObject.page.url();
+    expect(url).toBe(URL);
+}
+export async function waitSelector(Webelement:string){
+    await pageObject.page.waitForSelector(Webelement);
 }

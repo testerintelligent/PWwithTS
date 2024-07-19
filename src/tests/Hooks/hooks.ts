@@ -5,26 +5,28 @@ import { pageObject } from "../Hooks/PageObjects"
 
 let browser:Browser;
 let pages:Page;
-let context:BrowserContext;
-BeforeAll(async function() {
-    browser=await chromium.launch({headless:false});
-})
+// BeforeAll(async function() {
+   
+// })
 Before(async function(){ 
-    context = await browser.newContext();
-    pages=await context.newPage();
+    browser=await chromium.launch({headless:false});
+    pages=await browser.newPage();
     pageObject.page=pages;
-})
-After(async function({pickle,result}) {
+});
+After(async function(scenario) {
      //Failed ScreenShot
-    console.log(result?.status);
-    if(result?.status==Status.FAILED){
-        setDefaultTimeout(2000);
-        const img=await pageObject.page.screenshot({path:`./test-results/Screenshots/${pickle.name}`,type:"png"});
+   // console.log(scenario.result?.status);
+    if(scenario.result?.status==Status.FAILED){
+       // setDefaultTimeout(2000);
+        const img=await pageObject.page.screenshot({path:`./test-results/Screenshots/${scenario.pickle.name}`,type:"png"});
         await this.attach(img,"image/png");
     }
-//    pageObject.page.close();
+    console.log("===============Close Browser==============");
+    //await  pageObject.page.close();
+    await browser.close();
+   
 //    context.close();
-})
+});
 // AfterAll(async function(){
-//     await browser.close();
+    
 // })

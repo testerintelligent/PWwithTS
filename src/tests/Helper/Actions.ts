@@ -3,6 +3,7 @@ import { expect } from "@playwright/test";
 
 export async function launchURL(URL:string){
     await pageObject.page.goto(URL);
+    pageObject.page
 }
 export async function toClick(Webelement:string){
     await pageObject.page.locator(Webelement).click();

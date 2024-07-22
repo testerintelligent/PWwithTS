@@ -1,5 +1,5 @@
 import { Page, expect } from "@playwright/test"
-import { assertURL, clickAndSendkeys, launchURL, sendkeys, sleep, toClick, waitSelector } from "../../Helper/Actions";
+import { assertURL, clickAndSendkeys, launchURL, sendkeys, sleep, takeScreenshot, toClick, waitSelector } from "../../Helper/Actions";
 
 const pageLocators={
     usernameInputfield:"#user-name",
@@ -15,7 +15,12 @@ const pageLocators={
     checkoutPostalcode:"//input[@id='postal-code']",
     cartContinueButton:"//input[@class='btn_primary cart_button']",
     paymentInformation:"(//div[@class='summary_value_label'])[1]",
-    finishButton:"//a[@class='btn_action cart_button']"
+    finishButton:"//a[@class='btn_action cart_button']",
+    selectfilter:"//select[@class='product_sort_container']",
+    filteratoz:"//option[@value='az']",
+    filterZtoa:"//option[@value='za']",
+    filterLowtoHigh:"//option[@value='lohi']",
+    filterHightolow:"//option[@value='hilo']"
 }
 
 export class addProducts{
@@ -104,5 +109,15 @@ export class addProducts{
        async verifyCheckoutCompletePage(){
             const CheckoutCompletePage:string="https://www.saucedemo.com/v1/checkout-complete.html";
             await assertURL(CheckoutCompletePage);
+       }
+
+       async addminimumcart(){
+        waitSelector(pageLocators.selectfilter);
+        await this.page.locator(pageLocators.selectfilter).click();
+        const minimumProduct=await this.page.locator(pageLocators.filterLowtoHigh).click;
+        console.log(" Maximum price product name is : "+minimumProduct);
+       }
+       async FinalScreenshot(){
+        await takeScreenshot("FinalResult");
        }
     }

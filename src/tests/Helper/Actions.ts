@@ -45,3 +45,9 @@ export async function assertURL(URL:string){
 export async function waitSelector(Webelement:string){
     await pageObject.page.waitForSelector(Webelement);
 }
+export async function dropDownValidate(Webelement:string,options:string){
+    await pageObject.page.selectOption(Webelement,options);
+}
+export async function takeScreenshot(name:string){
+    await pageObject.page.screenshot({path:"test-results/Screenshots/"+Date.now()+name+".png"});
+}

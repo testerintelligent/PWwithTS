@@ -52,3 +52,8 @@ export async function dropDownValidate(Webelement:string,options:string){
 export async function takeScreenshot(name:string){
     await pageObject.page.screenshot({path:"test-results/Screenshots/"+Date.now()+name+".png"});
 }
+export async function statusCode(response:any,code:number) {
+   if(response.status()==code){
+    console.log(`Response status code is ${code}`);
+   }
+}

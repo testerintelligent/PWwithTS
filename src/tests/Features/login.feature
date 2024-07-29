@@ -1,4 +1,4 @@
-@tests
+@login
 Feature:User Authentication test
 
     Scenario:Login should be valid

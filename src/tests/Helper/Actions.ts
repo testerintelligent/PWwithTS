@@ -3,6 +3,7 @@ import { expect } from "@playwright/test";
 
 export async function launchURL(URL:string){
     await pageObject.page.goto(URL);
+    pageObject.page
 }
 export async function toClick(Webelement:string){
     await pageObject.page.locator(Webelement).click();
@@ -51,8 +52,8 @@ export async function dropDownValidate(Webelement:string,options:string){
 export async function takeScreenshot(name:string){
     await pageObject.page.screenshot({path:"test-results/Screenshots/"+Date.now()+name+".png"});
 }
-
-export async function assertText(Webelement:string,text:string){
-   
-    await expect(pageObject.page.locator(Webelement)).toHaveText(text);
+export async function statusCode(response:any,code:number) {
+   if(response.status()==code){
+    console.log(`Response status code is ${code}`);
+   }
 }

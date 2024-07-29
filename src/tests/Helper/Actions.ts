@@ -57,3 +57,20 @@ export async function statusCode(response:any,code:number) {
     console.log(`Response status code is ${code}`);
    }
 }
+export async function responseData(response:any){
+     console.log(await response.text());
+}
+export async function responseJSON(response:any){
+     console.log(await response.json());
+}
+export async function responseURL(response:any){
+    console.log(await response.url());
+}
+export async function responseRequest(response:any){
+    console.log(await response.request());
+}
+export async function responseHeaders(response:any){
+    console.log(await response.headers());
+}
+
+

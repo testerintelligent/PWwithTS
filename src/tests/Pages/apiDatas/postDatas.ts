@@ -6,8 +6,8 @@ interface User {
 
   const users: User[] = [
     {
-        name: "morpheus",
-        job: "leader"
+        name: "Magesh",
+        job: "Tester"
     }
   ];
   

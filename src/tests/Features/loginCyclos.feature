@@ -1,3 +1,4 @@
+@DemoCyclos
 Feature:User Authentication test for Cyclos 
 
     Scenario:Login should be valid

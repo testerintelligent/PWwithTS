@@ -73,4 +73,6 @@ export async function responseHeaders(response:any){
     console.log(await response.headers());
 }
 
-
+export async function assertText(Webelement:string,text:string){
+    await expect(pageObject.page.locator(Webelement)).toHaveText(text);
+}

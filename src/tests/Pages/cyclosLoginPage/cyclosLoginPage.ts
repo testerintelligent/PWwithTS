@@ -1,5 +1,5 @@
 import { expect, Page } from "@playwright/test";
-import { assertURL, clickAndSendkeys, launchURL, toClick , sendkeys, assertText } from "../../Helper/Actions";
+import { assertURL, clickAndSendkeys, launchURL, toClick , sendkeys, assertText, sleep, takeScreenshot, waitSelector } from "../../Helper/Actions";
 import { pageObject } from "../../Hooks/PageObjects";
 
 const PageLocators={
@@ -8,11 +8,10 @@ const PageLocators={
     loginButton:"//*[text()='Submit']",
     payButton:"(//a[@class='quick-access-item'])[1]",
     userSelectionButton:"//*[@formcontrolname='subject']//button",
-    userSelection:"//*[text()=' Demo one ']",
+    userSelection:"//a[text()=' Demo one ']",
     amountField:"//*[@formcontrolname='amount']//input",
     paymentConfirmation:"//div[@class='content-title d-flex']//div",
-    // nextButton:"//*[@class='d-inline-block button']//button"
-    nextButton:"(//*[@type='button'])[4]",
+    nextButton:"//span[text()='Next']",
     confirmButton:"//*[@type='button']//span[text()='Confirm']"
 }
 
@@ -33,10 +32,6 @@ export class cyclosloginPage{
     async ClicklaunchButton(){
        await toClick(PageLocators.loginButton);
     }
-    // async verifyHomePageURL(){
-    //     const homePageUrl:string="https://www.saucedemo.com/v1/inventory.html";
-    //     await assertURL(homePageUrl);
-    // }
     async ClickPayUserButton(){
         await toClick(PageLocators.payButton);
      }

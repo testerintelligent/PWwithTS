@@ -51,3 +51,8 @@ export async function dropDownValidate(Webelement:string,options:string){
 export async function takeScreenshot(name:string){
     await pageObject.page.screenshot({path:"test-results/Screenshots/"+Date.now()+name+".png"});
 }
+
+export async function assertText(Webelement:string,text:string){
+   
+    await expect(pageObject.page.locator(Webelement)).toHaveText(text);
+}

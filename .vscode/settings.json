@@ -4,5 +4,7 @@
     ],
     "cucumberautocomplete.pages":{
         "pages":"src/pages/*.ts"
-    }
+    },
+    // "cucumberautocomplete.features": "src/test/features/*.feature",
+    // "cucumberautocomplete.strictGherkinCompletion": true
 }

@@ -1,3 +1,4 @@
+
 Feature: Select Product with Filter
 
 Background:
@@ -5,7 +6,7 @@ Background:
     And Enter the username and password as "standard_user" and "secret_sauce"
     And Click the submit button
     Then Verify the Home page
-
+@withFilter
 Scenario: Select max and min price products with using filter
     Given Using filter to select the products
     And verify the MyCart page URL

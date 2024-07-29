@@ -9,7 +9,7 @@ let pages:Page;
    
 // })
 Before(async function(){ 
-    browser=await chromium.launch({headless:false});
+    browser=await chromium.launch({headless:true});
     pages=await browser.newPage();
     pageObject.page=pages;
 });

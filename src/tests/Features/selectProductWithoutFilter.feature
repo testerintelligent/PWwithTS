@@ -1,4 +1,4 @@
-
+@valid
 Feature: Select Product without Filter
 
 Background:
@@ -6,7 +6,7 @@ Background:
     And Enter the username and password as "standard_user" and "secret_sauce"
     And Click the submit button
     Then Verify the Home page
-@withoutFilter
+@withoutFilter 
 Scenario: Select max and min price products without using filter
     Given Select min or max price product and click add to cart button value "MAX"
     And verify the MyCart page URL

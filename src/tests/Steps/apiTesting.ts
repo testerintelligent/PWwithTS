@@ -18,5 +18,5 @@ Given('Test get request {string}', async function (URL) {
   });
 
   When('Test put request {string}', async function (URL) {
-    await api.updateRequest(URL);
+    await api.updateRequest(URL,users);
   });

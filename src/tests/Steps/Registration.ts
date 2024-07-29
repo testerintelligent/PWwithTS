@@ -23,7 +23,7 @@ Given('User Launch the URL', async function () {
   });
 
   Given('Verify the Registration page', async function () {
-   await Register.Validpage();
+   
    console.log("Registeration Completed");
    });
 

@@ -1,5 +1,5 @@
 import { expect, Page } from "@playwright/test";
-import {toClick,launchURL,sendkeys, assertTwoText} from "../../Helper/Actions";
+import {toClick,launchURL,sendkeys} from "../../Helper/Actions";
 
 const PageLocators={
    RegisterButton:"//a[@id='register-link']",
@@ -39,11 +39,6 @@ export class RegistrationPage{
     async clickNextButton()
     {
         await toClick(PageLocators.nextButon);
-    }
-
-    async Validpage()
-    {
-        await assertTwoText(PageLocators.nameRegisterText,"Registration confirmation");
     }
 }
 

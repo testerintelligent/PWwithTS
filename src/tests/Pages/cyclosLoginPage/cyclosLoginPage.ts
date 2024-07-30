@@ -1,5 +1,5 @@
-import { expect, Page } from "@playwright/test";
-import { assertURL, clickAndSendkeys, launchURL, toClick , sendkeys, assertText, sleep, takeScreenshot, waitSelector } from "../../Helper/Actions";
+import {  Page } from "@playwright/test";
+import {  clickAndSendkeys, launchURL, toClick , sendkeys, assertText } from "../../Helper/Actions";
 import { pageObject } from "../../Hooks/PageObjects";
 
 const PageLocators={
@@ -11,7 +11,7 @@ const PageLocators={
     userSelection:"//a[text()=' Demo one ']",
     amountField:"//*[@formcontrolname='amount']//input",
     paymentConfirmation:"//div[@class='content-title d-flex']//div",
-    nextButton:"//span[text()='Next']",
+    nextButton:"(//button)[3]",
     confirmButton:"//*[@type='button']//span[text()='Confirm']"
 }
 
@@ -49,7 +49,7 @@ export class cyclosloginPage{
      }
 
      async nextButton(){
-        await toClick(PageLocators.nextButton);
+      await pageObject.page.locator(PageLocators.nextButton).click();
      }
 
      async paymentConfirm(){

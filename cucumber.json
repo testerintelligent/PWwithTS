@@ -6,7 +6,7 @@
         "publishQuiet": false,
         "dryRun": false,
         "paths": [
-            "src/tests/Features/*.feature"
+            "src/tests/Features/**/*.feature"
         ],
         "require": [
             "src/tests/Steps/*.ts",

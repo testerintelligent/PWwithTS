@@ -1,6 +1,7 @@
 Feature:User Registration
 
 @register
+@runall
     Scenario:Valid Registration
         Given User Launch the URL
         And Click on Register link

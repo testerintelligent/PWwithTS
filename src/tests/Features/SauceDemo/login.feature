@@ -1,4 +1,4 @@
-@login @valid
+@login @valid @runall
 Feature:User Authentication test
 
     Scenario:Login should be valid

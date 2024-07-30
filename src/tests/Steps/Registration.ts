@@ -20,11 +20,11 @@ Given('User Launch the URL', async function () {
 
   Given('Click Next and confirm', async function () {
    await Register.clickNextButton();
+   console.log("Next Page");
   });
 
   Given('Verify the Registration page', async function () {
-   
+   await Register.comparePage();
    console.log("Registeration Completed");
    });
 
-  Then 

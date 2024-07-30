@@ -83,3 +83,8 @@ export async function cookieVerification(){
   export async function setCookies(dataForCookie:any){
     await pageObject.page.context().addCookies(dataForCookie)
   }
+  export async function mouseHoverClick(Webelement:string){
+    const locator=pageObject.page.locator(Webelement);
+    await locator.hover();
+    await locator.click();
+  }

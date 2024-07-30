@@ -76,3 +76,10 @@ export async function responseHeaders(response:any){
 export async function assertText(Webelement:string,text:string){
     await expect(pageObject.page.locator(Webelement)).toHaveText(text);
 }
+export async function cookieVerification(){
+    const cookies=await pageObject.page.context().cookies();
+    console.log(`Cookies present in the page are :`+JSON.stringify(cookies, null, 2))
+  }
+  export async function setCookies(dataForCookie:any){
+    await pageObject.page.context().addCookies(dataForCookie)
+  }

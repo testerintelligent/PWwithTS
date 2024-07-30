@@ -1,6 +1,7 @@
 import { Page } from "@playwright/test";
 import { pageObject } from "../Hooks/PageObjects";
-import {responseData, responseHeaders, responseJSON, responseRequest, responseURL, statusCode} from "./Actions"
+import {dataForCookie} from "../Pages/apiDatas/postDatas";
+import {cookieVerification, responseData, responseHeaders, responseJSON, responseRequest, responseURL, setCookies, statusCode} from "./Actions"
 export class API{
     private page:Page;
     constructor(page:Page){
@@ -10,6 +11,9 @@ export class API{
        const response=await pageObject.page.request.get(apiURL);
        statusCode(response,200);
        responseHeaders(response);
+       cookieVerification();
+       setCookies(dataForCookie);
+       cookieVerification();
     }
     async postRequest(apiURL:string,putData:any){
        const response=await pageObject.page.request.post(apiURL,{

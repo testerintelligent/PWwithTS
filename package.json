@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js test --tags @DemoCyclos"
+    "test": "cucumber-js test --tags @valid"
   },
   "keywords": [],
   "author": "",

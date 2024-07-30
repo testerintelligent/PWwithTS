@@ -24,7 +24,7 @@ Given('User Launch the URL', async function () {
   });
 
   Given('Verify the Registration page', async function () {
-    await Register.comparePage();
-    console.log("Registeration Completed");
-    });
+   await Register.comparePage();
+   console.log("Registeration Completed");
+   });
 

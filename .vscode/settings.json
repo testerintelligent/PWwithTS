@@ -1,9 +1,9 @@
 {
     "cucumberautocomplete.steps":[
-        "src/tests/Steps/*.ts"
+        "src/tests/Steps/**/*.ts"
     ],
     "cucumberautocomplete.pages":{
-        "pages":"src/pages/*.ts"
+        "pages":"src/pages/**/*.ts"
     },
     // "cucumberautocomplete.features": "src/test/features/*.feature",
     // "cucumberautocomplete.strictGherkinCompletion": true

@@ -1,6 +1,6 @@
 import { expect, Page } from "@playwright/test";
-import {toClick,launchURL,sendkeys, assertText} from "../../Helper/Actions";
-import { pageObject } from "../../Hooks/PageObjects";
+import {toClick,launchURL,sendkeys, assertText} from "../../../Helper/Actions";
+import { pageObject } from "../../../Hooks/PageObjects";
 
 const PageLocators={
    RegisterButton:"//a[@id='register-link']",
@@ -18,11 +18,11 @@ export class RegistrationPage{
         this.page=page;
     }
 
-    async navigate(){  
+    async navigate():Promise<any>{  
         await launchURL("https://demo.cyclos.org/ui/home");
     }
 
-    async enterMandatoryDetails(){
+    async enterMandatoryDetails():Promise<any>{
         // await toClick(PageLocators.nameTextBox);
         await sendkeys(PageLocators.nameTextBox,"Jeya");
         // await toClick(PageLocators.loginNameTextBox);
@@ -33,16 +33,16 @@ export class RegistrationPage{
       
     }
    
-    async clickRegisterButton(){
+    async clickRegisterButton():Promise<any>{
        await toClick(PageLocators.RegisterButton);
     }
 
-    async clickNextButton()
+    async clickNextButton():Promise<any>
     {
         await toClick(PageLocators.nextButon);
     }
 
-    async comparePage()
+    async comparePage():Promise<any>
     {
         await assertText(PageLocators.nameRegisterText,"Registration confirmation");
     }

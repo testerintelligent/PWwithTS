@@ -1,5 +1,5 @@
 import { Page } from "@playwright/test";
-import { assertURL, clickAndSendkeys, launchURL, toClick } from "../../Helper/Actions";
+import { assertURL, clickAndSendkeys, launchURL, toClick } from "../../../Helper/Actions";
 
 const PageLocators={
     usernameInputfield:"#user-name",
@@ -11,19 +11,19 @@ export class loginPage{
     constructor(page:Page){
         this.page=page;
     }
-    async navigate(){  
+    async navigate():Promise<any>{  
         await launchURL("https://www.saucedemo.com/v1/");
     }
-    async enterUsername(username:string){
+    async enterUsername(username:string):Promise<any>{
         await clickAndSendkeys(PageLocators.usernameInputfield,username);
     }
-    async enterPassword(password:string){
+    async enterPassword(password:string):Promise<any>{
         await clickAndSendkeys(PageLocators.passwordInputField,password);
     }
-    async ClicklaunchButton(){
+    async ClicklaunchButton():Promise<any>{
        await toClick(PageLocators.loginButton);
     }
-    async verifyHomePageURL(){
+    async verifyHomePageURL():Promise<any>{
         const homePageUrl:string="https://www.saucedemo.com/v1/inventory.html";
         await assertURL(homePageUrl);
     }

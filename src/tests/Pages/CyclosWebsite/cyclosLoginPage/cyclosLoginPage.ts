@@ -1,6 +1,6 @@
 import {  Page } from "@playwright/test";
-import {  clickAndSendkeys, launchURL, toClick , sendkeys, assertText } from "../../Helper/Actions";
-import { pageObject } from "../../Hooks/PageObjects";
+import {  clickAndSendkeys, launchURL, toClick , sendkeys, assertText } from "../../../Helper/Actions";
+import { pageObject } from "../../../Hooks/PageObjects";
 
 const PageLocators={
     usernameInputfield:"[formcontrolname='principal']",
@@ -20,43 +20,43 @@ export class cyclosloginPage{
     constructor(page:Page){
         this.page=page;
     }
-    async navigate(){  
+    async navigate():Promise<any>{  
         await launchURL("https://demo.cyclos.org/ui/login");
     }
-    async enterUsername(username:string){
+    async enterUsername(username:string):Promise<any>{
         await clickAndSendkeys(PageLocators.usernameInputfield,username);
     }
-    async enterPassword(password:string){
+    async enterPassword(password:string):Promise<any>{
         await clickAndSendkeys(PageLocators.passwordInputField,password);
     }
-    async ClicklaunchButton(){
+    async ClicklaunchButton():Promise<any>{
        await toClick(PageLocators.loginButton);
     }
-    async ClickPayUserButton(){
+    async ClickPayUserButton():Promise<any>{
         await toClick(PageLocators.payButton);
      }
 
-     async ClickUserSelectionButton(){
+     async ClickUserSelectionButton():Promise<any>{
         await toClick(PageLocators.userSelectionButton);
      }
 
-     async ClickUserSelection(){
+     async ClickUserSelection():Promise<any>{
         await toClick(PageLocators.userSelection);
      }
 
-     async enterUserAmount(){
+     async enterUserAmount():Promise<any>{
         await sendkeys(PageLocators.amountField,"100");
      }
 
-     async nextButton(){
+     async nextButton():Promise<any>{
       await pageObject.page.locator(PageLocators.nextButton).click();
      }
 
-     async paymentConfirm(){
+     async paymentConfirm():Promise<any>{
         await assertText(PageLocators.paymentConfirmation," Payment confirmation ");
      }
      
-     async confirmButton(){
+     async confirmButton():Promise<any>{
         await toClick(PageLocators.confirmButton);
      }
 

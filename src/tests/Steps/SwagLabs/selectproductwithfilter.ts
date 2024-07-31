@@ -1,7 +1,7 @@
 import { Given,When,Then } from "@cucumber/cucumber";
-import { pageObject } from "../Hooks/PageObjects";
-import { addMinimumProducts } from "../Pages/selectProductWithFilterPage/selectProductWithFilterPage";
-import { toClick } from "../Helper/Actions";
+import { pageObject } from "../../Hooks/PageObjects";
+import { addMinimumProducts } from "../../Pages/SwagLabsWebsite/selectProductWithFilterPage/selectProductWithFilterPage";
+import { toClick } from "../../Helper/Actions";
 let minimumProducts:addMinimumProducts;
 
 Given('Using filter to select the products', async function () {

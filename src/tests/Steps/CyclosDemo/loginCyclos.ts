@@ -1,6 +1,6 @@
 import { Given,Then,When } from "@cucumber/cucumber";
-import { cyclosloginPage } from "../Pages/cyclosLoginPage/cyclosLoginPage";
-import { pageObject } from "../Hooks/PageObjects";
+import { cyclosloginPage } from "../../Pages/CyclosWebsite/cyclosLoginPage/cyclosLoginPage";
+import { pageObject } from "../../Hooks/PageObjects";
 let Cyclosloginpage:cyclosloginPage;
 
   

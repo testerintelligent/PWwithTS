@@ -1,6 +1,6 @@
 import { Given,Then,When } from "@cucumber/cucumber";
-import { loginPage } from "../Pages/loginPage/loginPage";
-import { pageObject } from "../Hooks/PageObjects";
+import { loginPage } from "../../Pages/SwagLabsWebsite/loginPage/loginPage";
+import { pageObject } from "../../Hooks/PageObjects";
 let Loginpage:loginPage;
 
   Given('User navigate to the login page', async function () {

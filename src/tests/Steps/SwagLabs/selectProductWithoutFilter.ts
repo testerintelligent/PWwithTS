@@ -1,6 +1,6 @@
 import { Given,When,Then } from "@cucumber/cucumber";
-import { pageObject } from "../Hooks/PageObjects";
-import { addProducts } from "../Pages/selectProductWithoutFilterPage/selectProductWithoutFilterPage";
+import { pageObject } from "../../Hooks/PageObjects";
+import { addProducts } from "../../Pages/SwagLabsWebsite/selectProductWithoutFilterPage/selectProductWithoutFilterPage";
 let Products:addProducts;
        
          Given('Select min or max price product and click add to cart button value {string}', async function (string) {

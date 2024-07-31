@@ -1,7 +1,7 @@
 import { Given ,When} from "@cucumber/cucumber";
-import { API } from "../Helper/APIControllers";
-import { pageObject } from "../Hooks/PageObjects";
-import {users} from "../Pages/apiDatas/postDatas";
+import { API } from "../../Pages/API/APIControllers";
+import { pageObject } from "../../Hooks/PageObjects";
+import {users} from "../../Pages/API/apiDatas/postDatas";
 let api:API;
 
 Given('Test get request {string}', async function (URL) {

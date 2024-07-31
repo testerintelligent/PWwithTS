@@ -1,6 +1,6 @@
 import { Given,Then,When } from "@cucumber/cucumber";
-import { productCheckingPage } from "../Pages/assertValidationPage/assertValidationPage";
-import { pageObject } from "../Hooks/PageObjects";
+import { productCheckingPage } from "../../Pages/SwagLabsWebsite/assertValidationPage/assertValidationPage";
+import { pageObject } from "../../Hooks/PageObjects";
 import { expect } from "@playwright/test";
 let Checking:productCheckingPage;
 

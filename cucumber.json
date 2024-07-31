@@ -9,9 +9,9 @@
             "src/tests/Features/**/*.feature"
         ],
         "require": [
-            "src/tests/Steps/*.ts",
+            "src/tests/Steps/**/*.ts",
             "src/tests/Hooks/hooks.ts",
-            "Pages/*.ts",
+            "Pages/**/*.ts",
             "Hooks/*.ts"
         ],
         "requireModule": [

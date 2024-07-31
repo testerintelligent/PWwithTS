@@ -1,5 +1,5 @@
 import {  Page } from "@playwright/test";
-import {  clickAndSendkeys, launchURL, toClick , sendkeys, assertText } from "../../../Helper/Actions";
+import {  clickAndSendkeys, launchURL, toClick , sendkeys, assertText, takeScreenshot } from "../../../Helper/Actions";
 import { pageObject } from "../../../Hooks/PageObjects";
 
 const PageLocators={
@@ -58,6 +58,10 @@ export class cyclosloginPage{
      
      async confirmButton():Promise<any>{
         await toClick(PageLocators.confirmButton);
+     }
+
+     async validatePayment():Promise<any>{
+         await takeScreenshot("Validate Payment");
      }
 
 

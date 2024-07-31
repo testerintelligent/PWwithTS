@@ -40,6 +40,10 @@ let Cyclosloginpage:cyclosloginPage;
        await Cyclosloginpage.confirmButton(); 
   });
 
+  Then('I validate the payment', async function () {
+    await Cyclosloginpage.validatePayment();
+  });
+
 
 
   

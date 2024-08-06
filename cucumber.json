@@ -9,9 +9,9 @@
             "src/tests/Features/**/*.feature"
         ],
         "require": [
-            "src/tests/Steps/*.ts",
+            "src/tests/Steps/**/*.ts",
             "src/tests/Hooks/hooks.ts",
-            "Pages/*.ts",
+            "Pages/**/*.ts",
             "Hooks/*.ts"
         ],
         "requireModule": [
@@ -20,7 +20,8 @@
         "format": [
             "progress-bar",
             "html:test-results/cucumber-report.html",
-            "json:test-results/cucumber-report.json"
+            "json:test-results/cucumber-report.json",
+            "junit:test-results/report.xml"
         ]
     }
 }

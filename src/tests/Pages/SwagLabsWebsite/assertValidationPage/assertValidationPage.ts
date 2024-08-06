@@ -1,5 +1,5 @@
 import { expect, Page } from "@playwright/test";
-import { assertURL, clickAndSendkeys, launchURL, toClick } from "../../Helper/Actions";
+import { assertURL, clickAndSendkeys, launchURL, toClick } from "../../../Helper/Actions";
 
 const PageLocators={
     selectItem:"(//*[@class='inventory_item_name'])[1]",
@@ -15,29 +15,29 @@ export class productCheckingPage{
         this.page=page;
     }
     
-    async inventoryURL() {
+    async inventoryURL():Promise<any>{
        
      await launchURL("https://www.saucedemo.com/v1/inventory.html")
     }
 
-    async selectTheItem(){
+    async selectTheItem():Promise<any>{
      this.firstProduct = await this.page.locator(PageLocators.selectItem).innerText()
      console.log(" product:"+this.firstProduct)
     }
 
-    async addTheProduct(){
+    async addTheProduct():Promise<any>{
         await toClick(PageLocators.addToCartButton);
         await toClick(PageLocators.CartButton);
     }
 
-    async itemInCart(){
+    async itemInCart():Promise<any>{
         this.secondProduct = await this.page.locator(PageLocators.selectItem).innerText()
         console.log(" product:"+this.secondProduct)
 
         
         } 
 
-        async itemComparison(){
+        async itemComparison():Promise<any>{
             if(this.firstProduct==this.secondProduct)
             {
                 console.log("Both are same");

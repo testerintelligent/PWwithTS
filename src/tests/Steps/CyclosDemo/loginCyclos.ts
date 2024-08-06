@@ -1,6 +1,6 @@
 import { Given,Then,When } from "@cucumber/cucumber";
-import { cyclosloginPage } from "../Pages/cyclosLoginPage/cyclosLoginPage";
-import { pageObject } from "../Hooks/PageObjects";
+import { cyclosloginPage } from "../../Pages/CyclosWebsite/cyclosLoginPage/cyclosLoginPage";
+import { pageObject } from "../../Hooks/PageObjects";
 let Cyclosloginpage:cyclosloginPage;
 
   Given('User navigate to login page', async function () {
@@ -33,6 +33,10 @@ let Cyclosloginpage:cyclosloginPage;
 
   Given('I click the confirm button', async function () {
        await Cyclosloginpage.confirmButton(); 
+  });
+
+  Then('I validate the payment', async function () {
+    await Cyclosloginpage.validatePayment();
   });
 
 

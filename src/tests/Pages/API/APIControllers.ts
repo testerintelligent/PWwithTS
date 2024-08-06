@@ -1,13 +1,13 @@
 import { Page } from "@playwright/test";
-import { pageObject } from "../Hooks/PageObjects";
-import {dataForCookie} from "../Pages/apiDatas/postDatas";
-import {cookieVerification, responseData, responseHeaders, responseJSON, responseRequest, responseURL, setCookies, statusCode} from "./Actions"
+import { pageObject } from "../../Hooks/PageObjects";
+import {dataForCookie} from "./apiDatas/postDatas";
+import {cookieVerification, responseData, responseHeaders, responseJSON, responseRequest, responseURL, setCookies, statusCode} from "../../Helper/Actions"
 export class API{
     private page:Page;
     constructor(page:Page){
         this.page=page;
     }
-     async getRequest(apiURL:string){
+     async getRequest(apiURL:string):Promise<any>{
        const response=await pageObject.page.request.get(apiURL);
        statusCode(response,200);
        responseHeaders(response);
@@ -15,7 +15,7 @@ export class API{
        setCookies(dataForCookie);
        cookieVerification();
     }
-    async postRequest(apiURL:string,putData:any){
+    async postRequest(apiURL:string,putData:any):Promise<any>{
        const response=await pageObject.page.request.post(apiURL,{
             data: putData,
             headers: {
@@ -26,7 +26,7 @@ export class API{
             responseURL(response);
             
     }
-    async updateRequest(apiURL:string,updateData:any){
+    async updateRequest(apiURL:string,updateData:any):Promise<any>{
       const response= await pageObject.page.request.put(apiURL,{
         data: updateData,
         headers: {
@@ -35,12 +35,12 @@ export class API{
       statusCode(response,200);
       responseJSON(response);
     }
-    async deleteRequest(apiURL:string){
+    async deleteRequest(apiURL:string):Promise<any>{
         const response=await pageObject.page.request.delete(apiURL);
         statusCode(response,204);
       
     }
-    async headerVerification(apiURL:string,token:string){
+    async headerVerification(apiURL:string,token:string):Promise<any>{
        const response= await pageObject.page.request.get(apiURL, {
             headers: {
               'Authorization': `Bearer ${token}`,

@@ -9,3 +9,5 @@ Feature:User Authentication test for Cyclos
         And Click the user payment option
         And I perform the user payment
         And I click the confirm button
+        Then I validate the payment
+        

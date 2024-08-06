@@ -1,6 +1,6 @@
 import { Given,When,Then } from "@cucumber/cucumber";
-import { pageObject } from "../Hooks/PageObjects";
-import { RegistrationPage} from "../Pages/cyclosLoginPage/RegistrationPage";
+import { pageObject } from "../../Hooks/PageObjects";
+import { RegistrationPage} from "../../Pages/CyclosWebsite/cyclosRegistration/RegistrationPage";
 import { assert } from "console";
 
 let Register:RegistrationPage;

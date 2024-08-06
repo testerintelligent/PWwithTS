@@ -1,5 +1,5 @@
 import { Page, expect } from "@playwright/test"
-import { assertURL, clickAndSendkeys, launchURL, sendkeys, sleep, toClick, dropDownValidate,waitSelector } from "../../Helper/Actions";
+import { assertURL, clickAndSendkeys, launchURL, sendkeys, sleep, toClick, dropDownValidate,waitSelector } from "../../../Helper/Actions";
 
 const pageLocators1={
     selectfilter:"//select[@class='product_sort_container']",
@@ -17,18 +17,18 @@ export class addMinimumProducts{
     constructor(page1:Page){
         this.page1=page1;
     }
-    async filterClick(){
+    async filterClick():Promise<any>{
        await toClick(pageLocators1.selectfilter);
     }
-    async FilterCheck(){
+    async FilterCheck():Promise<any>{
         await dropDownValidate(pageLocators1.selectfilter,"Price (low to high)");
     }
    
-    async addTheProduct(){
+    async addTheProduct():Promise<any>{
         await toClick(pageLocators1.addToCartButton);
         await toClick(pageLocators1.CartButton);
     }
-    async clickCheckoutButton(){
+    async clickCheckoutButton():Promise<any>{
         await toClick(pageLocators1.checkoutButton);
     }
 }

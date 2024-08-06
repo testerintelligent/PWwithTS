@@ -8,7 +8,7 @@ Background: Ad flow in Vocher
         # And I perform the user payment
         # And I click the confirm button
        
- @adflow
+ @adflow @runall
  Scenario: Selecting Vocher 
     Given User navigate to Home page and click dashboard
     When I click on Vocher Module

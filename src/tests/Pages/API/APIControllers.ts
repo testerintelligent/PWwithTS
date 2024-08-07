@@ -10,10 +10,7 @@ export class API{
      async getRequest(apiURL:string):Promise<any>{
        const response=await pageObject.page.request.get(apiURL);
        statusCode(response,200);
-       responseHeaders(response);
-       cookieVerification();
-       setCookies(dataForCookie);
-       cookieVerification();
+       responseData(response);
     }
     async postRequest(apiURL:string,putData:any):Promise<any>{
        const response=await pageObject.page.request.post(apiURL,{
@@ -23,7 +20,6 @@ export class API{
             }});
             statusCode(response,201);
             responseJSON(response);
-            responseURL(response);
             
     }
     async updateRequest(apiURL:string,updateData:any):Promise<any>{
@@ -49,6 +45,17 @@ export class API{
           });
           statusCode(response,200);
           responseHeaders(response);
+    }
+    async postWithHeader(URL:string,token:string,DataSet:any){
+      console.log(DataSet);
+      const reponse:any=await pageObject.page.request.post(URL,{
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/json'
+        },
+        data:DataSet,
+      })
+      statusCode(reponse,201);
     }
 }
 

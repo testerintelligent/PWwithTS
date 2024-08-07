@@ -3,6 +3,13 @@ interface User {
     name: string;
     job: string;
   }
+  interface GORESTData{
+    id: number,
+    name: string,
+    email: string,
+    gender: string,
+    status: string
+  }
   interface cookieFormat {
     name: string,
     value: string,
@@ -28,7 +35,15 @@ interface User {
       secure: false
     }
   ];
+  const GoData:GORESTData[]=[{
+    "id": 768999,
+    "name": "magesh",
+    "email": "mahi208@gmail.com",
+    "gender": "male",
+    "status": "active"
+  }];
+
   
 
-  export {users,dataForCookie};
+  export {users,dataForCookie,GoData};
   

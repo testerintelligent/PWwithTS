@@ -54,13 +54,13 @@ export class vocherPage{
 
     async giftVocherAmount():Promise<any>{
         await toClick(PageLocators.giftVocherAmountText);
-        await sendkeys(PageLocators.giftVocherAmountText,"10");
+        await sendkeys(PageLocators.giftVocherAmountText,"0.1");
         await toClick(PageLocators.giftVocherCheckbox);
         await toClick(PageLocators.giftVocherNextButton);
     }
     async validateGiftVocher():Promise<any>{
         await assertText(PageLocators.giftVocherText,"Gift voucher");
-        await assertText(PageLocators.giftAmountText,"10,00 IU's");
+        await assertText(PageLocators.giftAmountText,"0,10 IU's");
     }
     
     async ConfirmationText():Promise<any>{

@@ -1,7 +1,7 @@
 import { Page } from "@playwright/test";
 import { pageObject } from "../../Hooks/PageObjects";
 import {dataForCookie} from "./apiDatas/postDatas";
-import {cookieVerification, responseData, responseHeaders, responseJSON, responseRequest, responseURL, setCookies, statusCode} from "../../Helper/Actions"
+import {cookieVerification, responseHeaders, responseJSON, responseURL, setCookies, statusCode} from "../../Helper/Actions"
 export class API{
     private page:Page;
     constructor(page:Page){
@@ -10,6 +10,7 @@ export class API{
      async getRequest(apiURL:string):Promise<any>{
        const response=await pageObject.page.request.get(apiURL);
        statusCode(response,200);
+       responseJSON(response);
        responseHeaders(response);
        cookieVerification();
        setCookies(dataForCookie);
@@ -51,5 +52,3 @@ export class API{
           responseHeaders(response);
     }
 }
-
-

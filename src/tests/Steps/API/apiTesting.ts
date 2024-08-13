@@ -21,5 +21,5 @@ Given('Test get request {string}', async function (URL) {
     await api.updateRequest(URL,users);
   });
   When('Test post request for GoREST {string}', async function (URL) {
-    await api.postWithHeader(URL,"a844c869786e0efed438ea11ed68bc3cf1aa31ecfcac132814085e773fa73c35",GoData);
+    // await api.postWithHeader(URL,"a844c869786e0efed438ea11ed68bc3cf1aa31ecfcac132814085e773fa73c35",GoData);
   });

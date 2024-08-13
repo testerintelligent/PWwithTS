@@ -11,10 +11,7 @@ export class API{
        const response=await pageObject.page.request.get(apiURL);
        statusCode(response,200);
        responseJSON(response);
-       responseHeaders(response);
-       cookieVerification();
-       setCookies(dataForCookie);
-       cookieVerification();
+       responseData(response);
     }
     async postRequest(apiURL:string,putData:any):Promise<any>{
        const response=await pageObject.page.request.post(apiURL,{
@@ -24,7 +21,6 @@ export class API{
             }});
             statusCode(response,201);
             responseJSON(response);
-            responseURL(response);
             
     }
     async updateRequest(apiURL:string,updateData:any):Promise<any>{

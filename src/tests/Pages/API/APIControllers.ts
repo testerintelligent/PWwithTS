@@ -1,7 +1,7 @@
 import { Page } from "@playwright/test";
 import { pageObject } from "../../Hooks/PageObjects";
 import {dataForCookie} from "./apiDatas/postDatas";
-import {cookieVerification, responseHeaders, responseJSON, responseURL, setCookies, statusCode} from "../../Helper/Actions"
+import {cookieVerification,responseRequest, responseData, responseHeaders, responseJSON, responseURL, setCookies, statusCode} from "../../Helper/Actions"
 export class API{
     private page:Page;
     constructor(page:Page){

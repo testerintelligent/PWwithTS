@@ -1,6 +1,6 @@
 import { pageObject } from "../Hooks/PageObjects";
 import { expect } from "@playwright/test";
-
+import { execFile } from "child_process";
 export async function launchURL(URL:string){
     await pageObject.page.goto(URL);
     pageObject.page
@@ -98,4 +98,17 @@ export async function mouseHoverClick(Webelement:string){
     const locator=pageObject.page.locator(Webelement);
     await locator.hover();
     await locator.click();
+  }
+  export async function fileUpload(filepath:string){
+    execFile(filepath, (error:any, stdout:any, stderr:any) => {
+        if (error) {
+            console.error(`Error executing AutoIt script: ${error.message}`);
+            return;
+        }
+        if (stderr) {
+            console.error(`stderr: ${stderr}`);
+            return;
+        }
+        console.log(`stdout: ${stdout}-File upload successfully`);
+    });
   }

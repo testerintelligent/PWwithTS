@@ -1,6 +1,6 @@
 Feature:User Registration
 
-@register
+@register_jeyagandhi
 @runall
     Scenario:Valid Registration
         Given User Launch the URL

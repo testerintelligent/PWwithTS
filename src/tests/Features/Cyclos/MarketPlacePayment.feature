@@ -6,7 +6,7 @@ Background: MarketPlace selection
         And Click the submit
         And I navigate to the marketplace
         
- @MarketCyclos_jeyagandhi @runall
+ @jeyagandhi_Web_MarketPlace @runall
  Scenario: Selecting Item 
     Given I select the item from marketplace
     And I perform the payment

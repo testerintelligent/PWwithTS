@@ -1,4 +1,4 @@
-@DemoCyclos_jeyagandhi
+@jeyagandhi_Web_Cyclosdemo
 @runall
 @MarketCyclos_jeyagandhi
 Feature:Cyclos MarketPlace Module

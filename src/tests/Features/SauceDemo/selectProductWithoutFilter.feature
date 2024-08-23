@@ -7,7 +7,7 @@ Background:
     And Click the submit button
     Then Verify the Home page
     
-@withoutFilter_magesh @runall
+@magesh_Web_Productwithoutfilters @runall
 Scenario: Select max and min price products without using filter
     Given Select min or max price product and click add to cart button value "MAX"
     And verify the MyCart page URL

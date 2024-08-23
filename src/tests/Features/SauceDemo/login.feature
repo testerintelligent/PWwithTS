@@ -1,4 +1,4 @@
-@login_magesh @valid_magesh @runall
+@magesh_Web_Login @valid_magesh @runall
 Feature:User Authentication test
 
     Scenario:Login should be valid

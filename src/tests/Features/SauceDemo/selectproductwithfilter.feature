@@ -7,7 +7,7 @@ Background:
     And Click the submit button
     Then Verify the Home page
     
-@withFilter_jaishree @valid_magesh @runall
+@jaishree_Web_Filterproducts @valid_magesh @runall
 Scenario: Select max and min price products with using filter
     Given Using filter to select the products
     And verify the MyCart page URL

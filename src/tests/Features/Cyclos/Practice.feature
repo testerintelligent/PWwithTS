@@ -1,4 +1,4 @@
-Feature:User Registration
+Feature:Automation demo
 
 @register_sevugan @runall
     Scenario:Valid Registration

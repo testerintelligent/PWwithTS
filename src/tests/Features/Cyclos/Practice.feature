@@ -1,6 +1,6 @@
 Feature:Automation demo
 
-@register_sevugan @runall
+@sevugan_Web_Automationdemo @runall
     Scenario:Valid Registration
         Given User Launch the automation demo site
         And fill the mandatory details

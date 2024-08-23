@@ -5,7 +5,7 @@ Background:
     And Enter the username and password as "standard_user" and "secret_sauce"
     And Click the submit button
     Then Verify the Home page
-@ProductVerification @valid @runall
+@ProductVerification_jaishree @valid_magesh @runall
 Scenario: Select max and min price products with using filter
     And verify the product item
 

@@ -6,7 +6,7 @@ Background: Ad flow in Vocher
         And Click the submit
         And Click the user payment option
        
- @adflow @runall
+ @adflow_jeyagandh @runall
  Scenario: Selecting Vocher 
     Given User navigate to Home page and click dashboard
     When I click on Vocher Module

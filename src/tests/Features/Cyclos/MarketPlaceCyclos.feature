@@ -1,6 +1,6 @@
-@DemoCyclos
+@DemoCyclos_jeyagandhi
 @runall
-@MarketCyclos
+@MarketCyclos_jeyagandhi
 Feature:Cyclos MarketPlace Module
 
     Scenario:Login should be valid

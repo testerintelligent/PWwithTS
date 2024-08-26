@@ -1,4 +1,4 @@
-@DemoCyclos
+@jeyagandhi_Web_Authentication
 @runall
 Feature:User Authentication test for Cyclos 
 

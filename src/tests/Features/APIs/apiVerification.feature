@@ -10,3 +10,8 @@ Feature:API verification
         Scenario: Test GoRest 
         Given Test get request "https://gorest.co.in/public/v2/users/7294019"
         # When Test post request "https://gorest.co.in/public/v2/users"
+
+@sevugan_API_Github
+        Scenario: Test GithubApi
+        Given Test create repository in github api "https://api.github.com/orgs/ORG/repos"
+        Given Test delete repository in github api "https://api.github.com/orgs/ORG/repos"     

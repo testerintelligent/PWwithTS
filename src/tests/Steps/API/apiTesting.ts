@@ -28,3 +28,13 @@ Given('Test get request {string}', async function (URL) {
   // When('Test post request for GoREST {string}', async function (URL) {
   //   // await api.postWithHeader(URL,"a844c869786e0efed438ea11ed68bc3cf1aa31ecfcac132814085e773fa73c35",GoData);
   // });
+
+  Given('Test create repository in github api {string}', async function (URL) {
+    api=new API(pageObject.page);
+    await api.createRepository(URL,users);
+  });
+
+  Given('Test delete repository in github api {string}', async function (URL) {
+    api=new API(pageObject.page);
+    await api.deleteRepository(URL,users);
+  });

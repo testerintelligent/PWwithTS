@@ -47,4 +47,33 @@ export class API{
           statusCode(response,200);
           responseHeaders(response);
     }
+    async createRepository(apiURL:string,putData:any):Promise<any>{
+      const response=await pageObject.page.request.post("https://api.github.com/user/repos",{
+           data: {"name":"mysecondrepo",
+            "description":"This is your first repository!",
+            "homepage":"https://github.com",
+            "private":false,
+            "is_template":true,
+            "has_issues":true,
+            "has_projects":true,
+            "has_wiki":true
+            },
+           headers: {
+             'Header':'X-GitHub-Api-Version: 2022-11-28',
+             'Accept':'application/vnd.github.v3+json',
+             'Authorization':'Bearer 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'
+           }});
+           statusCode(response,201);
+           responseJSON(response);          
+   }
+   async deleteRepository(apiURL:string,putData:any):Promise<any>{
+    const response=await pageObject.page.request.delete("https://api.github.com/repos/Sevugan93/mysecondrepo",{
+         headers: {
+           'Header':'X-GitHub-Api-Version: 2022-11-28',
+           'Accept':'application/vnd.github.v3+json',
+           'Authorization':'Bearer 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'
+         }});
+         statusCode(response,201);
+         responseJSON(response);          
+ }
 }

@@ -1,6 +1,7 @@
 import { Before,BeforeAll,AfterAll,After, setDefaultTimeout, Status} from "@cucumber/cucumber";
 import {chromium,Browser,Page, BrowserContext} from "@playwright/test"
 import { pageObject } from "../Hooks/PageObjects"
+import { logger } from "../Helper/logger";
 
 
 let browser:Browser;
@@ -22,7 +23,7 @@ After(async function(scenario) {
         const img=await pageObject.page.screenshot({path:`./test-results/Screenshots/${scenario.pickle.name}`,type:"png"});
         await this.attach(img,"image/png");
     }
-    console.log("===============Close Browser==============");
+   logger.info("Browser are closed");
     //await  pageObject.page.close();
     await browser.close();
    

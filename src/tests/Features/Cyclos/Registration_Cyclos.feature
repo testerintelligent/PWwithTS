@@ -1,7 +1,6 @@
 Feature:User Registration
 
 @jeyagandhi_Web_Registration
-@runall
     Scenario:Valid Registration
         Given User Launch the URL
         And Click on Register link

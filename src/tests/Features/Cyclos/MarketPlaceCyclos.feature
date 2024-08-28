@@ -1,8 +1,6 @@
-@jeyagandhi_Web_Cyclosdemo
-@runall
-@MarketCyclos_jeyagandhi
 Feature:Cyclos MarketPlace Module
 
+@jeyagandhi_MarketCyclos @jeyagandhi_Web_Cyclosdemo
     Scenario:Login should be valid
         Given User navigate to login page
         And Enter the username and password "demo" and "1234"

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js test --tags @upload"
+    "test": "cucumber-js test", 
+    "test1":"cucumber-js test --tags @tagname"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,7 @@
   "dependencies": {
     "@cucumber/cucumber": "^10.8.0",
     "cucumber": "^6.0.7",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "winston": "^3.14.2"
   }
 }

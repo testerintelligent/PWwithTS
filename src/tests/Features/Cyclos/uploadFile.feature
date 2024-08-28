@@ -1,4 +1,4 @@
-@magesh_Web_Uploadfile @runall
+@magesh_Web_Uploadfile
 Feature:Upload file from Desktop
     Scenario:Scenario for upload file using autoIT tool
         Given Launch Github in browser

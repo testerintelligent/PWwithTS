@@ -61,7 +61,7 @@ export class API{
            headers: {
              'Header':'X-GitHub-Api-Version: 2022-11-28',
              'Accept':'application/vnd.github.v3+json',
-             'Authorization':'Bearer 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'
+             'Authorization':'token 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'
            }});
            statusCode(response,201);
            responseJSON(response);          
@@ -71,9 +71,9 @@ export class API{
          headers: {
            'Header':'X-GitHub-Api-Version: 2022-11-28',
            'Accept':'application/vnd.github.v3+json',
-           'Authorization':'Bearer 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'
+           'Authorization':'token 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'
          }});
          statusCode(response,201);
-         responseJSON(response);          
+       //  responseJSON(response);          
  }
 }

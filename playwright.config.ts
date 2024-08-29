@@ -28,7 +28,11 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
-
+    extraHTTPHeaders: {
+      'Header':'X-GitHub-Api-Version: 2022-11-28',
+      'Accept':'application/vnd.github.v3+json',
+      'Authorization': 'token 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'
+    },
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },

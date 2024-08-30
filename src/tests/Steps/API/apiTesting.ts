@@ -29,12 +29,22 @@ Given('Test get request {string}', async function (URL) {
   //   // await api.postWithHeader(URL,"a844c869786e0efed438ea11ed68bc3cf1aa31ecfcac132814085e773fa73c35",GoData);
   // });
 
-  Given('Test create repository in github api {string}', async function (URL) {
+  Given('Test Create repository in github api {string}', async function (URL) {
     api=new API(pageObject.page);
     await api.createRepository(URL,users);
   });
 
-  Given('Test delete repository in github api {string}', async function (URL) {
+  Given('Test Update repository in github api {string}', async function (URL) {
+    api=new API(pageObject.page);
+    await api.updateRepository(URL,users);
+  });
+
+  Given('Test Delete repository in github api {string}', async function (URL) {
     api=new API(pageObject.page);
     await api.deleteRepository(URL,users);
+  });
+
+  Given('Test Get repository in github api for {string} repository {string}', async function (Status,URL) {
+    api=new API(pageObject.page);
+    await api.getRepository(URL,users,Status);
   });

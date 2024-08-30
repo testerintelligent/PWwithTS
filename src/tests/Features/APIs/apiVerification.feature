@@ -14,4 +14,5 @@ Feature:API verification
 @sevugan_API_Github
         Scenario: Test GithubApi
         Given Test create repository in github api "https://api.github.com/orgs/ORG/repos"
+        Given Test Get repository in github api "https://api.github.com/orgs/ORG/repos"
         Given Test delete repository in github api "https://api.github.com/orgs/ORG/repos"

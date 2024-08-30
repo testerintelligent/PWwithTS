@@ -6,7 +6,7 @@ Background:
     And Click the submit button
     Then Verify the Home page
 
-@jaishree_Web_Productverification @magesh_valid
+@jaishree_Web_Productverification
 Scenario: Select max and min price products with using filter
     And verify the product item
 

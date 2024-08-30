@@ -10,10 +10,10 @@ const PageLocators={
     vocherButton:"//div[text()=' My vouchers ']",
     VocherPageValidation:"//div[text()=' Search vouchers ']",
     buyVochers:"//div[text()='Buy vouchers']",
-    giftVocher:"//a[text()=' Gift voucher ']",
+    giftVocher:"//a[text()=' Restaurant voucher ']",
     cyclosLogo:"//div[text()='Cyclos']",
     giftVocherAmountText:"//input[@placeholder='0,00']",
-    giftVocherText:"//div[text()=' Gift voucher ']",
+    giftVocherText:"//div[contains(text(),' Restaurant voucher')]",
     giftVocherCheckbox:"//label[contains(text(),'voucher is a gift')]",
     giftVocherNextButton:"//span[text()='Next']",
     giftConfirmationText:"//div[text()=' Buy confirmation ']",
@@ -59,7 +59,7 @@ export class vocherPage{
         await toClick(PageLocators.giftVocherNextButton);
     }
     async validateGiftVocher():Promise<any>{
-        await assertText(PageLocators.giftVocherText,"Gift voucher");
+        await assertText(PageLocators.giftVocherText,"Restaurant voucher");
         await assertText(PageLocators.giftAmountText,"0,10 IU's");
     }
     

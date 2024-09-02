@@ -1,3 +1,5 @@
+Feature:API Github
+
 @sevugan_API_Github
         Scenario: Test GitHubApi
         Given Test Create repository in github api "https://api.github.com/orgs/ORG/repos"

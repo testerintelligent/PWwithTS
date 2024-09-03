@@ -31,7 +31,7 @@ export default defineConfig({
     extraHTTPHeaders: {
       'Header':'X-GitHub-Api-Version: 2022-11-28',
       'Accept':'application/vnd.github.v3+json',
-      'Authorization': 'token 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'
+      'Authorization': 'token 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'
     },
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',

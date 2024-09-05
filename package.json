@@ -4,14 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js test", 
-    "test1":"cucumber-js test --tags @sevugan_API_Github"
+    "test": "cucumber-js test",
+    "test1": "cucumber-js test --tags @sevugan_API_appInsurance"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.45.1",
+    "@playwright/test": "^1.46.1",
     "@types/node": "^20.14.10",
     "multiple-cucumber-html-reporter": "^3.6.2"
   },

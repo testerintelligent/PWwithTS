@@ -48,3 +48,13 @@ Given('Test get request {string}', async function (URL) {
     api=new API(pageObject.page);
     await api.getRepository(URL,users,Status);
   });
+
+  Given('Test Login functionality for insurance app {string}', async function (URL) {
+    api=new API(pageObject.page);
+    await api.loginApi();
+  });
+
+  Given('Issue policy from insurance app {string}', async function (URL) {
+    api=new API(pageObject.page);
+    await api.issuePolicy();
+  });

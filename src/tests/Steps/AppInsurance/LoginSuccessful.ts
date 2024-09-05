@@ -15,5 +15,5 @@ Given('User launch the page', async function () {
   });
 
   Then('user able to navigate home page', async function () {
-   
+   await loginPage.assertHomePage();
   });

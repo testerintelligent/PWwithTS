@@ -1,4 +1,4 @@
-Feature: Login Validation
+Feature: Login Validation - AppInsurance
 
 @Jeyagandhi_LoginCreation
 Scenario: Login Creation

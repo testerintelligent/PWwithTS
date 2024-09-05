@@ -20,7 +20,7 @@ pipeline
 			// Checkout the repository from GitHub
 			git branch: 'main',
 			//credentialsId: '',
-			url: 'https://github.com/Mageshpoopathi/PlaywrightTypescript.git'
+			url: 'https://github.com/testerintelligent/PWwithTS.git'
 			}
 		} 			
 

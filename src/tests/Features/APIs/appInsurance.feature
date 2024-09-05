@@ -1,4 +1,4 @@
-Feature:API Github
+Feature:Insurance App API
 
 @sevugan_API_appInsurance
 Scenario: Test GitHubApi

@@ -132,7 +132,7 @@ export class API{
 async issuePolicy():Promise<any>{
   const response=await pageObject.page.request.post("http://192.168.99.141:5000/Dashboard",
     {data:{
-      "Name": "Testertwo",
+      "Name": "Testerfour",
       "email": "testertwo@gmail.com",
       "Address": "mepzoffice",
       "DateOfBirth": "2002-01-04",

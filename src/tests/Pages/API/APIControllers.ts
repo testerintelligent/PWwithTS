@@ -130,10 +130,11 @@ export class API{
 }
 
 async issuePolicy():Promise<any>{
+  const name = "Expleotester"+Date.now();
   const response=await pageObject.page.request.post("http://192.168.99.141:5000/Dashboard",
     {data:{
-      "Name": "Testerfour",
-      "email": "testertwo@gmail.com",
+      "Name": name,
+      "email": name+"@gmail.com",
       "Address": "mepzoffice",
       "DateOfBirth": "2002-01-04",
       "PolicyType": "Health Insurance",
@@ -143,5 +144,19 @@ async issuePolicy():Promise<any>{
        statusCode(response,201);
        responseJSON(response);
        expect(response.status()).toBe(201);    
+}
+
+async getPolicy():Promise<any>{
+  const response=await pageObject.page.request.get("http://192.168.99.141:5000/Dashboard")
+       statusCode(response,200);
+       responseJSON(response);
+       expect(response.status()).toBe(200);    
+}
+
+async deletePolicy():Promise<any>{
+  const response=await pageObject.page.request.get("http://192.168.99.141:5000/Dashboard/66daa09240eeab8c102e2f4d")
+       statusCode(response,200);
+       responseJSON(response);
+       expect(response.status()).toBe(200);    
 }
 }

@@ -43,35 +43,4 @@ async submit()
     await toClick(PageLocators.submit);
 }
 
-async assertRegisterPage()
-{
-    await assertText(PageLocators.assertInsSubmit,"Insurance policy created successfully.");
-}
-
-
-async assertHomePage()
-{
-    await assertText(PageLocators.homePageText,"Insurance Policy Details");
-}
-
-async addDetailsForPolicy()
-{
-     let date = "1991-12-04"
-    const name="Jaya"+Date.now();
-    await pageObject.page.mouse.move(20, 40);
-    await clickAndSendkeys(PageLocators.name,name);
-    await clickAndSendkeys(PageLocators.email,name+"@"+name+".com");
-    await clickAndSendkeys(PageLocators.address,"chennai");
-    await select(PageLocators.policyType,"Health Insurance");
-    await pageObject.page.waitForTimeout(2000);
-    await select(PageLocators.sumInsured,"1,00,000");
-    await clickAndSendkeys(PageLocators.premiumAmount,"1000"); 
-    await Fill(PageLocators.dateOfBirth, date);
-}
-
-async submitPage()
-{
-await toClick(PageLocators.registerSubmit);
-}
-
 }

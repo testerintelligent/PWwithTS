@@ -70,7 +70,7 @@ await toClick(PageLocators.registerSubmit);
 
 async assertHomePage()
 {
-    await expect(PageLocators.homePageText).toEqual("Insurance Policy Details");
+    await assertText(PageLocators.homePageText,"Insurance Policy Details");
 }
 
 }

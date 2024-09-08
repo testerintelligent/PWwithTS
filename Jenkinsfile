@@ -46,7 +46,7 @@ pipeline
 			{
 			junit allowEmptyResults: true, skipMarkingBuildUnstable: true, skipPublishingChecks: true, testResults: 'test-results/report.xml'
 			sleep(time:7,unit:"SECONDS")
-			cucumber buildStatus: 'UNCHANGED', customCssFiles: '', customJsFiles: '', fileIncludePattern: '/*.json', jsonReportDirectory:'test-results/', reportTitle: 'Playwright_typescript', sortingMethod: 'ALPHABETICAL', trendsLimit: 5
+			cucumber buildStatus: 'UNCHANGED', customCssFiles: '', customJsFiles: '', fileIncludePattern: '/*.json', jsonReportDirectory:'test-results/', reportTitle: 'Playwright_TS', sortingMethod: 'ALPHABETICAL', trendsLimit: 5
 			}
 	}	  
 }

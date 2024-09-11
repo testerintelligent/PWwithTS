@@ -3,9 +3,9 @@ import { cyclosloginPage } from "../../Pages/CyclosWebsite/cyclosLoginPage/cyclo
 import { pageObject } from "../../Hooks/PageObjects";
 let Cyclosloginpage:cyclosloginPage;
 
-  Given('User navigate to login page', async function () {
-    Cyclosloginpage=new cyclosloginPage(pageObject.page);
-    await Cyclosloginpage.navigate();
+  Given('User navigate to login page with {string}', async function (Url:string) {
+    Cyclosloginpage=new cyclosloginPage();
+    await Cyclosloginpage.navigate(Url);
   });
   
   Given('Enter the username and password {string} and {string}', async function (username, password) {
@@ -13,7 +13,7 @@ let Cyclosloginpage:cyclosloginPage;
     await Cyclosloginpage.enterPassword(password);
   });
   
-  Given('Click the submit', async function () {
+  Given('Click the login submit button', async function () {
     await Cyclosloginpage.ClicklaunchButton();
   });
 

@@ -2,6 +2,7 @@ import {  Page } from "@playwright/test";
 import {  clickAndSendkeys, launchURL, toClick , sendkeys, assertText, takeScreenshot } from "../../../Helper/Actions";
 import { pageObject } from "../../../Hooks/PageObjects";
 
+//Locators for Cyclos login Page
 const PageLocators={
     usernameInputfield:"[formcontrolname='principal']",
     passwordInputField:"[type='password']",
@@ -14,14 +15,10 @@ const PageLocators={
     nextButton:"(//button)[3]",
     confirmButton:"//*[@type='button']//span[text()='Confirm']"
 }
-
+//It is a base class for all the login page
 export class cyclosloginPage{
-    private page:Page;
-    constructor(page:Page){
-        this.page=page;
-    }
-    async navigate():Promise<any>{  
-        await launchURL("https://demo.cyclos.org/ui/login");
+    async navigate(URL:string):Promise<any>{  
+        await launchURL(URL);
     }
     async enterUsername(username:string):Promise<any>{
         await clickAndSendkeys(PageLocators.usernameInputfield,username);
@@ -32,6 +29,10 @@ export class cyclosloginPage{
     async ClicklaunchButton():Promise<any>{
        await toClick(PageLocators.loginButton);
     }
+
+
+
+    
     async ClickPayUserButton():Promise<any>{
         await toClick(PageLocators.payButton);
      }

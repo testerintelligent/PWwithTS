@@ -14,10 +14,7 @@ const PageLocators={
     confirmButton:"//*[@type='button']//span[text()='Confirm']"
 }
 export class cyclosMarketPlacePage{
-    private page:Page;
-    constructor(page:Page){
-        this.page=page;
-    }
+ 
     async MarketPlaceButton():Promise<any>{
         await toClick(PageLocators.marketPlaceButton);
      }

@@ -21,10 +21,7 @@ const PageLocators = {
 }
 
 export class LoginPage{
-    private page:Page;
-    constructor(page:Page){
-        this.page=page;
-    }
+  
 
 async navigate():Promise<any>{  
     let url="http://192.168.99.141:3000/";

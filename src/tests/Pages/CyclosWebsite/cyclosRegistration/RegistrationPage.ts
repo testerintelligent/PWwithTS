@@ -13,10 +13,7 @@ const PageLocators={
 }
 
 export class RegistrationPage{
-    private page:Page;
-    constructor(page:Page){
-        this.page=page;
-    }
+   
 
     async navigate():Promise<any>{  
         await launchURL("https://demo.cyclos.org/ui/home");

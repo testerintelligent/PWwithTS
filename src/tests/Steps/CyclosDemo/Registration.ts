@@ -6,7 +6,7 @@ import { assert } from "console";
 let Register:RegistrationPage;
 
 Given('User Launch the URL', async function () {
-  Register=new RegistrationPage(pageObject.page);
+  Register=new RegistrationPage();
     await Register.navigate();
   });
 

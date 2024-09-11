@@ -13,10 +13,7 @@ const pageLocators1={
 }
 
 export class addMinimumProducts{
-    private page1:Page;
-    constructor(page1:Page){
-        this.page1=page1;
-    }
+   
     async filterClick():Promise<any>{
        await toClick(pageLocators1.selectfilter);
     }

@@ -5,7 +5,7 @@ import { toClick } from "../../Helper/Actions";
 let minimumProducts:addMinimumProducts;
 
 Given('Using filter to select the products', async function () {
-  minimumProducts=new addMinimumProducts(pageObject.page);
+  minimumProducts=new addMinimumProducts();
   await minimumProducts.filterClick();
   await minimumProducts.FilterCheck();
   await minimumProducts.addTheProduct();

@@ -5,7 +5,7 @@ import { assertText, toClick } from "../../Helper/Actions";
 
 let details:ManagerLogin;
 Given('User navigate to the login screen', async function () {
-    details = new ManagerLogin(pageObject.page)
+    details = new ManagerLogin()
     await details.navigate();
   });
 

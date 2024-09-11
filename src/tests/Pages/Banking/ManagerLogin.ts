@@ -18,10 +18,7 @@ const PageLocators = {
     home:"//button[text()='Home']"
 }
 export class ManagerLogin{
-    private page:Page;
-    constructor(page:Page){
-        this.page=page;
-    }
+   
     async navigate():Promise<any>{  
         let url="https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login";
         await launchURL(url);

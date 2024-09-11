@@ -6,11 +6,7 @@ const PageLocators = {
 }
 
 export class automationDemoPage{
-    private page:Page;
-    constructor(page:Page){
-        this.page=page;
-    }
-
+  
     async navigate():Promise<any>{  
         await launchURL("https://demo.automationtesting.in/Register.html");
     }

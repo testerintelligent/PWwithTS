@@ -21,7 +21,7 @@ let Checking:productCheckingPage;
 
   Given('verify the product item', async function () {
   //  await Checking.inventoryURL()
-   Checking = new productCheckingPage(pageObject.page);
+   Checking = new productCheckingPage();
    await Checking.selectTheItem()
    await Checking.addTheProduct()
    await Checking.itemInCart()

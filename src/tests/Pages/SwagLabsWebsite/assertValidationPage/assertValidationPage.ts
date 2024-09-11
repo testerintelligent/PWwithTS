@@ -1,5 +1,6 @@
 import { expect, Page } from "@playwright/test";
 import { assertURL, clickAndSendkeys, launchURL, toClick } from "../../../Helper/Actions";
+import { pageObject } from "../../../Hooks/PageObjects";
 
 const PageLocators={
     selectItem:"(//*[@class='inventory_item_name'])[1]",
@@ -10,10 +11,6 @@ const PageLocators={
 export class productCheckingPage{
     firstProduct:string="";
     secondProduct:string="";
-    private page:Page;
-    constructor(page:Page){
-        this.page=page;
-    }
     
     async inventoryURL():Promise<any>{
        
@@ -21,7 +18,7 @@ export class productCheckingPage{
     }
 
     async selectTheItem():Promise<any>{
-     this.firstProduct = await this.page.locator(PageLocators.selectItem).innerText()
+     this.firstProduct = await pageObject.page.locator(PageLocators.selectItem).innerText()
      console.log(" product:"+this.firstProduct)
     }
 
@@ -31,7 +28,7 @@ export class productCheckingPage{
     }
 
     async itemInCart():Promise<any>{
-        this.secondProduct = await this.page.locator(PageLocators.selectItem).innerText()
+        this.secondProduct = await pageObject.page.locator(PageLocators.selectItem).innerText()
         console.log(" product:"+this.secondProduct)
 
         

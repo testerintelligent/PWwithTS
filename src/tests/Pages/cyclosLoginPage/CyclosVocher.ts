@@ -23,10 +23,7 @@ const PageLocators={
 }
 
 export class vocherPage{
-    private page:Page;
-    constructor(page:Page){
-        this.page=page;
-    }
+  
 
     async ClickdashboardButton():Promise<any>{
         await toClick(PageLocators.dashboard);

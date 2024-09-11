@@ -6,7 +6,7 @@ import { logger } from "../../Helper/logger";
 let api:API;
 
 Given('Test get request {string}', async function (URL) {
-    api=new API(pageObject.page);
+    api=new API();
     await api.getRequest(URL);
     logger.info("info in get request");
   });
@@ -30,41 +30,41 @@ Given('Test get request {string}', async function (URL) {
   // });
 
   Given('Test Create repository in github api {string}', async function (URL) {
-    api=new API(pageObject.page);
+    api=new API();
     await api.createRepository(URL,users);
   });
 
   Given('Test Update repository in github api {string}', async function (URL) {
-    api=new API(pageObject.page);
+    api=new API();
     await api.updateRepository(URL,users);
   });
 
   Given('Test Delete repository in github api {string}', async function (URL) {
-    api=new API(pageObject.page);
+    api=new API();
     await api.deleteRepository(URL,users);
   });
 
   Given('Test Get repository in github api for {string} repository {string}', async function (Status,URL) {
-    api=new API(pageObject.page);
+    api=new API();
     await api.getRepository(URL,users,Status);
   });
 
   Given('Test Login functionality for insurance app {string}', async function (URL) {
-    api=new API(pageObject.page);
+    api=new API();
     await api.loginApi();
   });
 
   Given('Issue policy from insurance app {string}', async function (URL) {
-    api=new API(pageObject.page);
+    api=new API();
     await api.issuePolicy();
   });
 
   Given('I retrieve the list of users from insurance app {string}', async function (URL) {
-    api=new API(pageObject.page);
+    api=new API();
     await api.getPolicy();
   });
 
   Given('I delete the policy from insurance app {string}', async function (URL) {
-    api=new API(pageObject.page);
+    api=new API();
     await api.getPolicy();
   });

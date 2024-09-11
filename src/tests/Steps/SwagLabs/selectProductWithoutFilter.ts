@@ -4,7 +4,7 @@ import { addProducts } from "../../Pages/SwagLabsWebsite/selectProductWithoutFil
 let Products:addProducts;
        
          Given('Select min or max price product and click add to cart button value {string}', async function (string) {
-          Products=new addProducts(pageObject.page);
+          Products=new addProducts();
           if(string=="MIN"){
             await Products.minPriceProduct();
           }

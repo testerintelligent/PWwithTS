@@ -4,10 +4,7 @@ import {dataForCookie} from "./apiDatas/postDatas";
 import {cookieVerification,responseRequest, responseData, responseHeaders, responseJSON, responseURL, setCookies, statusCode} from "../../Helper/Actions"
 import { assert } from "console";
 export class API{
-    private page:Page;
-    constructor(page:Page){
-        this.page=page;
-    }
+  
      async getRequest(apiURL:string):Promise<any>{
        const response=await pageObject.page.request.get(apiURL);
        statusCode(response,200);

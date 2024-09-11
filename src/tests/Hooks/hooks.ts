@@ -10,7 +10,7 @@ let pages:Page;
     
 // })
 Before(async function(){ 
-    browser=await chromium.launch({headless:true});
+    browser=await chromium.launch({headless:false});
     setDefaultTimeout:  60 * 1000 
     pages=await browser.newPage();
     pageObject.page=pages;

@@ -6,7 +6,7 @@ import { send } from "process";
 
 let loginPage:LoginPage;
 Given('User launch the page', async function () {
-    loginPage = new LoginPage(pageObject.page)
+    loginPage = new LoginPage()
     await loginPage.navigate();
     console.log("url")
   });

@@ -5,7 +5,7 @@ import { assertText } from "../../Helper/Actions";
 let CyclocsVocherpage:vocherPage;
 
   Given('User navigate to Home page and click dashboard', async function () {
-    CyclocsVocherpage=new vocherPage(pageObject.page);
+    CyclocsVocherpage=new vocherPage();
     await CyclocsVocherpage.verifyHomePageURL();
   });
 

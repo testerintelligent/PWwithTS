@@ -1,5 +1,6 @@
 import { Page, expect } from "@playwright/test"
 import { assertURL, clickAndSendkeys, launchURL, sendkeys, sleep, takeScreenshot, toClick, waitSelector } from "../../../Helper/Actions";
+import { pageObject } from "../../../Hooks/PageObjects";
 
 const pageLocators={
     usernameInputfield:"#user-name",
@@ -24,14 +25,9 @@ const pageLocators={
 }
 
 export class addProducts{
-    private page:Page;
-    constructor(page:Page){
-        this.page=page;
-    }
-    
-    
+  
     async minPriceProduct():Promise<any>{
-       const products= await this.page.locator(pageLocators.inventoryItem).allTextContents();
+       const products= await pageObject.page.locator(pageLocators.inventoryItem).allTextContents();
        let min:number=500;
        let minindex:number=0;
       for(let i=0;i<products.length;i++){
@@ -43,14 +39,14 @@ export class addProducts{
             minindex=i+1;
         }
       }
-      await this.page.locator("(//div[@class='inventory_item']/div/button)["+minindex+"]").click();
-      const minProductName=await this.page.locator("(//div[@class='inventory_item']/div/a/div)["+minindex+"]").innerText();
+      await pageObject.page.locator("(//div[@class='inventory_item']/div/button)["+minindex+"]").click();
+      const minProductName=await pageObject.page.locator("(//div[@class='inventory_item']/div/a/div)["+minindex+"]").innerText();
       await toClick(pageLocators.shoppingCartContainer);
       console.log(" Minimum price product name is : "+minProductName);
        }
 
        async maxPriceProduct():Promise<any>{
-        const products= await this.page.locator(pageLocators.inventoryItem).allTextContents();
+        const products= await pageObject.page.locator(pageLocators.inventoryItem).allTextContents();
         let max:number=0;
         let maxindex:number=0;
        for(let i=0;i<products.length;i++){
@@ -62,8 +58,8 @@ export class addProducts{
              maxindex=i+1;
          }
        }
-       await this.page.locator("(//div[@class='inventory_item']/div/button)["+maxindex+"]").click();
-       const maxProductName=await this.page.locator("(//div[@class='inventory_item']/div/a/div)["+maxindex+"]").innerText();
+       await pageObject.page.locator("(//div[@class='inventory_item']/div/button)["+maxindex+"]").click();
+       const maxProductName=await pageObject.page.locator("(//div[@class='inventory_item']/div/a/div)["+maxindex+"]").innerText();
        await toClick(pageLocators.shoppingCartContainer);
        console.log(" Maximum price product name is : "+maxProductName);
         }
@@ -75,7 +71,7 @@ export class addProducts{
        }
        async verifyMycartProductItems():Promise<any>{
         waitSelector(pageLocators.myCartItems);
-         const Productname = await this.page.locator(pageLocators.myCartItems).innerText();
+         const Productname = await pageObject.page.locator(pageLocators.myCartItems).innerText();
          expect(Productname).toContain('Sauce Labs ');
        }
        async clickCheckoutButton():Promise<any>{
@@ -99,7 +95,7 @@ export class addProducts{
        }
        async paymentInformation():Promise<any>{
         waitSelector(pageLocators.paymentInformation);
-        const paymentID= await this.page.locator(pageLocators.paymentInformation).innerText();
+        const paymentID= await pageObject.page.locator(pageLocators.paymentInformation).innerText();
         console.log(" "+paymentID);
        }
        async clickFinishButton():Promise<any>{
@@ -113,8 +109,8 @@ export class addProducts{
 
        async addminimumcart():Promise<any>{
         waitSelector(pageLocators.selectfilter);
-        await this.page.locator(pageLocators.selectfilter).click();
-        const minimumProduct=await this.page.locator(pageLocators.filterLowtoHigh).click;
+        await pageObject.page.locator(pageLocators.selectfilter).click();
+        const minimumProduct=await pageObject.page.locator(pageLocators.filterLowtoHigh).click;
         console.log(" Maximum price product name is : "+minimumProduct);
        }
        async FinalScreenshot():Promise<any>{

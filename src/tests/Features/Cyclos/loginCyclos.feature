@@ -1,7 +1,7 @@
-Feature:User Authentication test for Cyclos 
+Feature:Cyclos_Payment_Validation
 
  @jeyagandhi_Web_Cyclosdemo
-    Scenario:Login should be valid
+    Scenario:Cyclos login and payment validation
         Given User navigate to login page
         And Enter the username and password "demo" and "1234"
         And Click the submit
@@ -9,4 +9,3 @@ Feature:User Authentication test for Cyclos
         And I perform the user payment
         And I click the confirm button
         Then I validate the payment
-        

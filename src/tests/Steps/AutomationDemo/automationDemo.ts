@@ -4,7 +4,7 @@ import { pageObject } from "../../Hooks/PageObjects";
 
 let demoPage:automationDemoPage;
 Given('User Launch the automation demo site', async function () {
-    demoPage = new automationDemoPage(pageObject.page)
+    demoPage = new automationDemoPage()
     await demoPage.navigate();
   });
 
@@ -18,7 +18,7 @@ Given('User Launch the automation demo site', async function () {
   });
 
   Given('Click submit and navigate to next page', async function () {
-    
+    await demoPage.submit();
   });
 
   Then('Verify the Registration page details', async function () {

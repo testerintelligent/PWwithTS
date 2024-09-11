@@ -1,13 +1,13 @@
-Feature:Ad flow 
+Feature:Adflow_Shopping_Validation
 
-Background: Ad flow in Vocher
+Background: Adflow Portal Login
         Given User navigate to login page
         And Enter the username and password "demo" and "1234"
         And Click the submit
         And Click the user payment option
        
- @jeyagandhi_Web_Adflow
- Scenario: Selecting Vocher 
+@jeyagandhi_Web_Adflow
+Scenario: Validating the adflow portal
     Given User navigate to Home page and click dashboard
     When I click on Vocher Module
     And navigate to Gift Vocher option

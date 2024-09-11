@@ -1,7 +1,7 @@
-Feature:Cyclos MarketPlace Module
+Feature:Cyclos_MarketPlace_Validation
 
 @jeyagandhi_MarketCyclos
-    Scenario:Login should be valid
+    Scenario:Validation of marketplace application
         Given User navigate to login page
         And Enter the username and password "demo" and "1234"
         And Click the submit

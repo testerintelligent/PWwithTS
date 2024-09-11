@@ -12,5 +12,3 @@ Background: MarketPlace selection
     And I perform the payment
     And I enter the amount for the item
     And I confirm the payment
-    
-

@@ -2,9 +2,13 @@ import {  Page } from "@playwright/test";
 import {  clickAndSendkeys, launchURL, toClick , sendkeys, assertText,assertURL, mouceClick, Fill } from "../../Helper/Actions";
 import { pageObject } from "../../Hooks/PageObjects";
 
-// Locators for cyclos vocher page
 
-const PageLocators={
+
+export class vocherPage{
+
+    // Locators for cyclos vocher page
+//change locatars into private to implement encapsulation
+private PageLocators={
     dashboard:"//div[text()='Dashboard']",
     userName:"//input[@placeholder='User']",
     passWord:"//input[@placeholder='Password']",
@@ -23,28 +27,26 @@ const PageLocators={
     giftVocherStatus:"//div[text()='Open']",
     confirm:"//span[text()='Confirm']"
 }
-
-export class vocherPage{
   
 // Web interaction methods for vocher page
 
     async ClickdashboardButton():Promise<any>{
-        await toClick(PageLocators.dashboard);
+        await toClick(this.PageLocators.dashboard);
     }
 
     async comparePage():Promise<any>{
-        await assertText(PageLocators.cyclosLogo,"Cyclos");
+        await assertText(this.PageLocators.cyclosLogo,"Cyclos");
     }
 
     async clickVocherButton(){
-        await toClick(PageLocators.vocherButton);
-        await assertText(PageLocators.VocherPageValidation,"Search vouchers");
+        await toClick(this.PageLocators.vocherButton);
+        await assertText(this.PageLocators.VocherPageValidation,"Search vouchers");
     }
 
     async gotoGiftVocher()
     {
-        await toClick(PageLocators.buyVochers);
-        await toClick(PageLocators.giftVocher);
+        await toClick(this.PageLocators.buyVochers);
+        await toClick(this.PageLocators.giftVocher);
     }
 
     async verifyHomePageURL():Promise<any>{
@@ -53,22 +55,22 @@ export class vocherPage{
     }
 
     async giftVocherAmount():Promise<any>{
-        await toClick(PageLocators.giftVocherAmountText);
-        await sendkeys(PageLocators.giftVocherAmountText,"0.1");
-        await toClick(PageLocators.giftVocherCheckbox);
-        await toClick(PageLocators.giftVocherNextButton);
+        await toClick(this.PageLocators.giftVocherAmountText);
+        await sendkeys(this.PageLocators.giftVocherAmountText,"0.1");
+        await toClick(this.PageLocators.giftVocherCheckbox);
+        await toClick(this.PageLocators.giftVocherNextButton);
     }
     async validateGiftVocher():Promise<any>{
-        await assertText(PageLocators.giftVocherText,"Restaurant voucher");
-        await assertText(PageLocators.giftAmountText,"0,10 IU's");
+        await assertText(this.PageLocators.giftVocherText,"Restaurant voucher");
+        await assertText(this.PageLocators.giftAmountText,"0,10 IU's");
     }
     
     async ConfirmationText():Promise<any>{
-        await assertText(PageLocators.giftConfirmationText,"Buy confirmation");
-        await toClick(PageLocators.confirm);
+        await assertText(this.PageLocators.giftConfirmationText,"Buy confirmation");
+        await toClick(this.PageLocators.confirm);
     }
 
     async assertGiftVocherPage():Promise<any>{
-       await assertText(PageLocators.giftVocherStatus,"Open");
+       await assertText(this.PageLocators.giftVocherStatus,"Open");
     }
 };

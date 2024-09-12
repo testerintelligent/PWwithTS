@@ -3,7 +3,7 @@ import {  clickAndSendkeys, launchURL, toClick , sendkeys, assertText, takeScree
 import { pageObject } from "../../../Hooks/PageObjects";
 
 export class PaymentValidation{
-
+//Change all the locators into private to implement Encapsulation
     private PageLocators={
         payButton:"(//a[@class='quick-access-item'])[1]",
         userSelectionButton:"//*[@formcontrolname='subject']//button",
@@ -13,6 +13,7 @@ export class PaymentValidation{
         nextButton:"(//button)[3]",
         confirmButton:"//*[@type='button']//span[text()='Confirm']"
     }
+    //public methods to implement functionalities
     async ClickPayUserButton():Promise<any>{
         await toClick(this.PageLocators.payButton);
      }

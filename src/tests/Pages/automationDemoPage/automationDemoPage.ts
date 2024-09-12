@@ -1,11 +1,13 @@
 import {  Page } from "@playwright/test";
 import {  clickAndSendkeys, launchURL, toClick , sendkeys, assertText, takeScreenshot } from "../../Helper/Actions";
-const PageLocators = {
-    firstName:"[placeholder='First Name']",
-    lastName:"[placeholder='Last Name']"
-}
+
 
 export class automationDemoPage{
+    //Change all the locators into private to implement Inheritance
+    private PageLocators = {
+        firstName:"[placeholder='First Name']",
+        lastName:"[placeholder='Last Name']"
+    }
   
     // Web interaction methods for Automation demo login page
 
@@ -13,9 +15,9 @@ export class automationDemoPage{
         await launchURL("https://demo.automationtesting.in/Register.html");
     }
     async enterFirstName(firstName:string):Promise<any>{
-        await clickAndSendkeys(PageLocators.firstName,firstName);
+        await clickAndSendkeys(this.PageLocators.firstName,firstName);
     }
     async enterLastName(lastName:string):Promise<any>{
-        await clickAndSendkeys(PageLocators.lastName,lastName);
+        await clickAndSendkeys(this.PageLocators.lastName,lastName);
     }
 }

@@ -1,5 +1,4 @@
-
-Feature: Select Product without Filter
+Feature: SauceDemo_Checkout_Products
 
 Background:
     Given User navigate to the login page with "https://www.saucedemo.com/v1/"
@@ -7,15 +6,14 @@ Background:
     And Click the submit button
     Then Verify the Home page
     
-@magesh_Web_Productwithoutfilters
-Scenario: Select max and min price products without using filter
-    Given Select min or max price product and click add to cart button value "MAX"
+@jaishree_Web_Filterproducts 
+Scenario: Validation of checkout functionality in saucedemo application
+    Given Using filter to select the products
     And verify the MyCart page URL
-    And verify two of the products in MyCart and click checkout button
+    And Click checkout button
     And verify the checkout page URL
     And User enter checkout information and click continue button
     And verify the overview page URL
-    And Verify paying and shipping information in overview page
     And Click Finish button to confirm your order
     And Verify the checkout-complete page URL
     Then User take final order confirmation screenshot

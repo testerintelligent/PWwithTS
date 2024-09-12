@@ -1,7 +1,7 @@
 import { Page, expect } from "@playwright/test"
 import { assertURL, clickAndSendkeys, launchURL, sendkeys, sleep, toClick, dropDownValidate,waitSelector } from "../../../Helper/Actions";
 
-
+// Locators for Products page
 
 const pageLocators1={
     selectfilter:"//select[@class='product_sort_container']",
@@ -16,6 +16,8 @@ const pageLocators1={
 
 export class addMinimumProducts{
    
+    // Web interaction methods for Products webpage
+
     async filterClick():Promise<any>{
        await toClick(pageLocators1.selectfilter);
     }

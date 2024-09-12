@@ -1,6 +1,8 @@
 import { Page } from "@playwright/test";
 import { launchURL, toClick } from "../../Helper/Actions";
 
+// Web interaction methods for launch url and add files
+
 export class upload{
     private page:Page;
     constructor(page:Page){

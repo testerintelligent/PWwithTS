@@ -4,6 +4,8 @@ import { url } from "inspector";
 import { send } from "process";
 import { cli } from "winston/lib/winston/config";
 import { pageObject } from "../../Hooks/PageObjects";
+
+// Locators for app insurance application
 const PageLocators = {
     userName:"//input[@id='username']",
     password:"//input[@id='Password']",
@@ -22,6 +24,7 @@ const PageLocators = {
 
 export class LoginPage{
   
+    //Interaction methods for App insurance - Login Page
 
 async navigate():Promise<any>{  
     let url="http://192.168.99.141:3000/";

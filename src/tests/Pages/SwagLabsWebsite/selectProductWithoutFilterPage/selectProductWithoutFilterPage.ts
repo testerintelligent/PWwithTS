@@ -2,6 +2,8 @@ import { Page, expect } from "@playwright/test"
 import { assertURL, clickAndSendkeys, launchURL, sendkeys, sleep, takeScreenshot, toClick, waitSelector } from "../../../Helper/Actions";
 import { pageObject } from "../../../Hooks/PageObjects";
 
+// Locators for Products page
+
 const pageLocators={
     usernameInputfield:"#user-name",
     passwordInputField:"#password",
@@ -26,6 +28,8 @@ const pageLocators={
 
 export class addProducts{
   
+// Web interaction methods for Products webpage
+
     async minPriceProduct():Promise<any>{
        const products= await pageObject.page.locator(pageLocators.inventoryItem).allTextContents();
        let min:number=500;

@@ -7,6 +7,8 @@ const PageLocators = {
 
 export class automationDemoPage{
   
+    // Web interaction methods for Automation demo login page
+
     async navigate():Promise<any>{  
         await launchURL("https://demo.automationtesting.in/Register.html");
     }

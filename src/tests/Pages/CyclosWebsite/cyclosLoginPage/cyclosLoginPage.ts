@@ -2,6 +2,21 @@ import {  Page } from "@playwright/test";
 import {  clickAndSendkeys, launchURL, toClick , sendkeys, assertText, takeScreenshot, assertURL, waitSelector } from "../../../Helper/Actions";
 import { pageObject } from "../../../Hooks/PageObjects";
 
+//Locators for Cyclos login Page
+const PageLocators={
+    usernameInputfield:"[formcontrolname='principal']",
+    passwordInputField:"[type='password']",
+    loginButton:"//*[text()='Submit']",
+    payButton:"(//a[@class='quick-access-item'])[1]",
+    userSelectionButton:"//*[@formcontrolname='subject']//button",
+    userSelection:"//a[text()=' Demo one ']",
+    amountField:"//*[@formcontrolname='amount']//input",
+    paymentConfirmation:"//div[@class='content-title d-flex']//div",
+    nextButton:"(//button)[3]",
+    confirmButton:"//*[@type='button']//span[text()='Confirm']"
+}
+//Base class for all cyclos login page
+// Web Interaction methods for cyclos login page
 
 
 

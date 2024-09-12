@@ -7,21 +7,21 @@ const PageLocators={
     passwordInputField:"#password",
     loginButton:"#login-button"
 }
-//Inplement inheritance in this sub class
+//Implement inheritance in this sub class
 export class loginPage extends cyclosloginPage{
-  //overwride method
+  //overrride method
     async navigate(URL: string):Promise<any> {
         await launchURL(URL);
     }
-    //overwride method
+    //overrride method
     async enterUsername(username: string): Promise<any> {
         await clickAndSendkeys(PageLocators.usernameInputfield,username);
     }
-    //overwride method
+    //override method
     async enterPassword(password: string): Promise<any> {
         await clickAndSendkeys(PageLocators.passwordInputField,password);
     }
-    //overwride method
+    //override method
     async ClicklaunchButton(): Promise<any> {
         await toClick(PageLocators.loginButton);
     }

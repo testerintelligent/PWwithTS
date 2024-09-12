@@ -15,7 +15,8 @@ const PageLocators={
     nextButton:"(//button)[3]",
     confirmButton:"//*[@type='button']//span[text()='Confirm']"
 }
-//It is a base class for all the login page
+//Base class for all cyclos login page
+// Web Interaction methods for cyclos login page
 export class cyclosloginPage{
     async navigate(URL:string):Promise<any>{  
         await launchURL(URL);

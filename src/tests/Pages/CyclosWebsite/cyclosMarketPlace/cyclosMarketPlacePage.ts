@@ -2,6 +2,8 @@ import { Page } from "@playwright/test";
 import { assertURL, clickAndSendkeys, launchURL, toClick,sendkeys, assertText, waitSelector, sleep} from "../../../Helper/Actions";
 import { pageObject } from "../../../Hooks/PageObjects";
 
+// Locators for cyclos market place page
+
 const PageLocators={
     marketPlaceButton:"//a[@id='menu_marketplace']",
     SearchTextbox:"//input[@type='text']",
@@ -13,6 +15,9 @@ const PageLocators={
     nextButton:"//*[@class='d-inline-block button']",
     confirmButton:"//*[@type='button']//span[text()='Confirm']"
 }
+
+// Web Inetraction methods for cyclos market place application
+
 export class cyclosMarketPlacePage{
  
     async MarketPlaceButton():Promise<any>{

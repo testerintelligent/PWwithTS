@@ -4,6 +4,8 @@ import { pageObject } from "../../Hooks/PageObjects";
 
 type DialogHandler = (dialog: Dialog) => Promise<void>;
 
+// Locators for Manger login web page
+
 const PageLocators = {
     bankManagerLogin:"//button[@ng-click='manager()']",
     addCustomer:"//button[@ng-click='addCust()']",
@@ -19,6 +21,8 @@ const PageLocators = {
 }
 export class ManagerLogin{
    
+    // Web interaction methods for manager login page
+
     async navigate():Promise<any>{  
         let url="https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login";
         await launchURL(url);

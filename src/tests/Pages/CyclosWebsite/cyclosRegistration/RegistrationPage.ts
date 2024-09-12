@@ -2,6 +2,8 @@ import { expect, Page } from "@playwright/test";
 import {toClick,launchURL,sendkeys, assertText} from "../../../Helper/Actions";
 import { pageObject } from "../../../Hooks/PageObjects";
 
+// Locators for registration page
+
 const PageLocators={
    RegisterButton:"//a[@id='register-link']",
    nameTextBox:"(//input[@type='text'])[1]",
@@ -14,6 +16,7 @@ const PageLocators={
 
 export class RegistrationPage{
    
+    // Web interaction methods for Registration page
 
     async navigate():Promise<any>{  
         await launchURL("https://demo.cyclos.org/ui/home");

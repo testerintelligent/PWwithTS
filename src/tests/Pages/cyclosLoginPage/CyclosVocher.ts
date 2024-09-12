@@ -2,6 +2,8 @@ import {  Page } from "@playwright/test";
 import {  clickAndSendkeys, launchURL, toClick , sendkeys, assertText,assertURL, mouceClick, Fill } from "../../Helper/Actions";
 import { pageObject } from "../../Hooks/PageObjects";
 
+// Locators for cyclos vocher page
+
 const PageLocators={
     dashboard:"//div[text()='Dashboard']",
     userName:"//input[@placeholder='User']",
@@ -24,6 +26,7 @@ const PageLocators={
 
 export class vocherPage{
   
+// Web interaction methods for vocher page
 
     async ClickdashboardButton():Promise<any>{
         await toClick(PageLocators.dashboard);

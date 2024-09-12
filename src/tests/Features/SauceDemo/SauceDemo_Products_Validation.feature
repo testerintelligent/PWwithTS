@@ -1,4 +1,4 @@
-Feature: Cart product validation
+Feature: SauceDemo_Products_Validation
 
 Background:
     Given User navigate to the login page with "https://www.saucedemo.com/v1/"
@@ -7,8 +7,5 @@ Background:
     Then Verify the Home page
 
 @jaishree_Web_Productverification
-Scenario: Select max and min price products with using filter
+Scenario: Validation of maximum and minimum price products in saucedemo application
     And verify the product item
-
-
-    

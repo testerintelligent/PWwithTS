@@ -1,5 +1,4 @@
-
-Feature: Select Product with Filter
+Feature: SauceDemo_Payment_Shipment_Validation
 
 Background:
     Given User navigate to the login page with "https://www.saucedemo.com/v1/"
@@ -7,14 +6,15 @@ Background:
     And Click the submit button
     Then Verify the Home page
     
-@jaishree_Web_Filterproducts 
-Scenario: Select max and min price products with using filter
-    Given Using filter to select the products
+@magesh_Web_Productwithoutfilters
+Scenario: Validation of shipment and payment functionality in saucedemo
+    Given Select min or max price product and click add to cart button value "MAX"
     And verify the MyCart page URL
-    And Click checkout button
+    And verify two of the products in MyCart and click checkout button
     And verify the checkout page URL
     And User enter checkout information and click continue button
     And verify the overview page URL
+    And Verify paying and shipping information in overview page
     And Click Finish button to confirm your order
     And Verify the checkout-complete page URL
     Then User take final order confirmation screenshot

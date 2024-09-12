@@ -1,9 +1,13 @@
 import { Page, expect } from "@playwright/test"
 import { assertURL, clickAndSendkeys, launchURL, sendkeys, sleep, toClick, dropDownValidate,waitSelector } from "../../../Helper/Actions";
 
-// Locators for Products page
 
-const pageLocators1={
+
+export class addMinimumProducts{
+
+    // Locators for Products page
+// Change all the locators into private to implement Encapsulation
+private pageLocators1={
     selectfilter:"//select[@class='product_sort_container']",
     filteratoz:"//option[@value='az']",
     filterZtoa:"//option[@value='za']",
@@ -13,23 +17,21 @@ const pageLocators1={
     CartButton:"//a[@class='shopping_cart_link fa-layers fa-fw']",
     checkoutButton:"//a[@class='btn_action checkout_button']"
 }
-
-export class addMinimumProducts{
    
     // Web interaction methods for Products webpage
 
     async filterClick():Promise<any>{
-       await toClick(pageLocators1.selectfilter);
+       await toClick(this.pageLocators1.selectfilter);
     }
     async FilterCheck():Promise<any>{
-        await dropDownValidate(pageLocators1.selectfilter,"Price (low to high)");
+        await dropDownValidate(this.pageLocators1.selectfilter,"Price (low to high)");
     }
    
     async addTheProduct():Promise<any>{
-        await toClick(pageLocators1.addToCartButton);
-        await toClick(pageLocators1.CartButton);
+        await toClick(this.pageLocators1.addToCartButton);
+        await toClick(this.pageLocators1.CartButton);
     }
     async clickCheckoutButton():Promise<any>{
-        await toClick(pageLocators1.checkoutButton);
+        await toClick(this.pageLocators1.checkoutButton);
     }
 }

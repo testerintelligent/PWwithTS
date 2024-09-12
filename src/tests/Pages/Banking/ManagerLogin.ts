@@ -4,22 +4,25 @@ import { pageObject } from "../../Hooks/PageObjects";
 
 type DialogHandler = (dialog: Dialog) => Promise<void>;
 
-// Locators for Manger login web page
 
-const PageLocators = {
-    bankManagerLogin:"//button[@ng-click='manager()']",
-    addCustomer:"//button[@ng-click='addCust()']",
-    selectCustomer:"//select[@id='userSelect']",
-    selectCurrency:"//select[@id='currency']",
-    openCustomer:"//button[@ng-click='openAccount()']",
-    process:"//button[@type='submit']",
-    firtName:"//input[@ng-model='fName']",
-    lastName:"//input[@ng-model='lName']",
-    postCode:"//input[@ng-model='postCd']",
-    addDetails:"//button[text()='Add Customer']",
-    home:"//button[text()='Home']"
-}
+
+
 export class ManagerLogin{
+// Locators for Manger login web page
+//Change all the locators into private to implement Inheritance
+    private PageLocators = {
+        bankManagerLogin:"//button[@ng-click='manager()']",
+        addCustomer:"//button[@ng-click='addCust()']",
+        selectCustomer:"//select[@id='userSelect']",
+        selectCurrency:"//select[@id='currency']",
+        openCustomer:"//button[@ng-click='openAccount()']",
+        process:"//button[@type='submit']",
+        firtName:"//input[@ng-model='fName']",
+        lastName:"//input[@ng-model='lName']",
+        postCode:"//input[@ng-model='postCd']",
+        addDetails:"//button[text()='Add Customer']",
+        home:"//button[text()='Home']"
+    }
    
     // Web interaction methods for manager login page
 
@@ -31,20 +34,20 @@ export class ManagerLogin{
 
     async clickManager()
     {
-        await(toClick(PageLocators.bankManagerLogin));
+        await(toClick(this.PageLocators.bankManagerLogin));
     }
 
     async fillDetails()
     {
      let fname:string="admin"+Date.now();
-        await(toClick(PageLocators.addCustomer));
-        await(clickAndSendkeys(PageLocators.firtName,fname));
-        await(clickAndSendkeys(PageLocators.lastName,"sam"));
-        await(clickAndSendkeys(PageLocators.postCode,"600001"));
-        expect(PageLocators.home,"Home");
+        await(toClick(this.PageLocators.addCustomer));
+        await(clickAndSendkeys(this.PageLocators.firtName,fname));
+        await(clickAndSendkeys(this.PageLocators.lastName,"sam"));
+        await(clickAndSendkeys(this.PageLocators.postCode,"600001"));
+        expect(this.PageLocators.home,"Home");
         console.log(fname)
 
-        await(toClick(PageLocators.addDetails)); 
+        await(toClick(this.PageLocators.addDetails)); 
       
         pageObject.page.on('dialog', async dialog => {     // Check if the dialog type is 'alert'
             if (dialog.type() === 'alert') {   
@@ -52,19 +55,19 @@ export class ManagerLogin{
                       // Dismiss the alertawait dialog.dismiss(); // Alternatively, you can accept the alert// 
                       await dialog.accept(); 
                     }
-                    expect(PageLocators.openCustomer,"Open Account");
+                    expect(this.PageLocators.openCustomer,"Open Account");
                  });
 }
 
 
 async openCustomer()
 {
-    await (toClick(PageLocators.openCustomer));
+    await (toClick(this.PageLocators.openCustomer));
    // await (toClick(PageLocators.selectCustomer));
   
-    await select(PageLocators.selectCustomer,"2");
-    await select(PageLocators.selectCurrency,"Pound");
+    await select(this.PageLocators.selectCustomer,"2");
+    await select(this.PageLocators.selectCurrency,"Pound");
 
-    await toClick(PageLocators.process);
+    await toClick(this.PageLocators.process);
 }
 }

@@ -16,28 +16,14 @@ let Cyclosloginpage:cyclosloginPage;
   Given('Click the login submit button', async function () {
     await Cyclosloginpage.ClicklaunchButton();
   });
+  Given('Verify the Home page title as {string}',async function(text:string){
+    await Cyclosloginpage.VerifyHomePageText(text);
+  })
+  Given('Verify the Invalid message as {string}',async function(assertText:string){
+    await Cyclosloginpage.invalidDatas(assertText);
+  })
 
-  Given('Click the user payment option', async function () {
-    await Cyclosloginpage.ClickPayUserButton();
-  });
-
-  Given('I perform the user payment', async function () {
-
-    await Cyclosloginpage.ClickUserSelectionButton();
-    await Cyclosloginpage.ClickUserSelection();
-    await Cyclosloginpage.enterUserAmount();
-    await Cyclosloginpage.nextButton(); 
-    await Cyclosloginpage.paymentConfirm();
-
-  });
-
-  Given('I click the confirm button', async function () {
-       await Cyclosloginpage.confirmButton(); 
-  });
-
-  Then('I validate the payment', async function () {
-    await Cyclosloginpage.validatePayment();
-  });
+  
 
 
 

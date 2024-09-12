@@ -48,7 +48,7 @@ export async function sleep(time:number){
  pageObject.page.waitForTimeout(time);
 }
 export async function assertURL(URL:string){
-    const url =await pageObject.page.url();
+    const url = pageObject.page.url();
     expect(url).toBe(URL);
 }
 export async function waitSelector(Webelement:string){

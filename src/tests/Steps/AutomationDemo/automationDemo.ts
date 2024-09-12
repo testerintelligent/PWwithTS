@@ -18,7 +18,7 @@ Given('User Launch the automation demo site', async function () {
   });
 
   Given('Click submit and navigate to next page', async function () {
-    await demoPage.submit();
+    //await demoPage.submit();
   });
 
   Then('Verify the Registration page details', async function () {

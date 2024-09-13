@@ -3,11 +3,14 @@ import { cyclosMarketPlacePage } from "../../Pages/CyclosWebsite/cyclosMarketPla
 import { pageObject } from "../../Hooks/PageObjects";
 let Cyclosmarketplacepage:cyclosMarketPlacePage;
 
+// Method for navigate to cyclos market place page
 
 Given('I navigate to the marketplace', async function () {
     Cyclosmarketplacepage=new cyclosMarketPlacePage();
     await Cyclosmarketplacepage.MarketPlaceButton();
   });
+
+// Method for products selection in cyclos market place page 
 
   Given('I select the item from marketplace', async function () {
     Cyclosmarketplacepage=new cyclosMarketPlacePage();
@@ -16,10 +19,14 @@ Given('I navigate to the marketplace', async function () {
     await Cyclosmarketplacepage.VerifyItem();
 });
 
+// Method for performing payment in cyclos market place page
+
 Given('I perform the payment', async function () {
   Cyclosmarketplacepage=new cyclosMarketPlacePage();
   await Cyclosmarketplacepage.MakePaymentOption;
 });
+
+// Method for payment confirmation in cyclos market place page
 
 Given('I enter the amount for the item', async function () {
   Cyclosmarketplacepage=new cyclosMarketPlacePage();

@@ -3,6 +3,8 @@ import { PaymentValidation } from "../../Pages/CyclosWebsite/PaymentValidationPa
 
 let CyclosPaymentValidation:PaymentValidation
 
+// Methods for payment validation in cyclos payment validation page 
+
 Given('Click the user payment option', async function () {
     CyclosPaymentValidation=new PaymentValidation();
     await CyclosPaymentValidation.ClickPayUserButton();

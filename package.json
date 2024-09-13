@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "cucumber-js test",
-    "test1": "cucumber-js test --tags  @magesh_add_Invalid"
+    "test1": "cucumber-js test --tags  @sevugan_API_appInsurance"
   },
   "keywords": [],
   "author": "",

@@ -5,19 +5,27 @@ import {GoData, users} from "../../Pages/API/apiDatas/postDatas";
 import { logger } from "../../Helper/logger";
 let api:API;
 
-// Get Request for Insurance app Api
+// Post Request for Log into Insurance app Api
 
-Given('Test get request {string}', async function (URL) {
+Given('Test Login functionality for insurance app {string}', async function (URL) {
     api=new API();
-    await api.getRequest(URL);
+    await api.loginApi();
     logger.info("info in get request");
   });
 
-  // Post request for Insurance app Api
+  // Post request for issue policy in Insurance app Api
 
-  When('Test post request {string}', async function (URL) {
+  When('Issue policy from insurance app {string}', async function (URL) {
     await api.postRequest(URL,users);
     logger.error("Error in post request");
+  });
+
+  // Get request for fetching list of users in insurnace app api
+
+  When('I retrieve the list of users from insurance app {string}', async function (URL) {
+    api=new API();
+    await api.getPolicy();
+    logger.info("info in get request");
   });
 
   // Delete Request for Insurance app Api 

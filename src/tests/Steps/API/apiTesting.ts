@@ -72,3 +72,11 @@ Given('Test Login functionality for insurance app {string}', async function (URL
     api=new API();
     await api.getRepository(URL,users,Status);
   });
+
+// Get Request for reqres Api
+
+Given('Test get request {string}', async function (URL) {
+  api=new API();
+  await api.getRequest;
+  logger.info("info in get request");
+});

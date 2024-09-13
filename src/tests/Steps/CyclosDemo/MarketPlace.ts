@@ -35,6 +35,8 @@ Given('I enter the amount for the item', async function () {
   await Cyclosmarketplacepage.paymentConfirm;
 });
 
+// Method for clicking confirm button in cyclos market place page
+
 Given('I confirm the payment', async function () {
   Cyclosmarketplacepage=new cyclosMarketPlacePage();
   await Cyclosmarketplacepage.confirmButton;

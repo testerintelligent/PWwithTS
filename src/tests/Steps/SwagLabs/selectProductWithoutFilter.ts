@@ -16,7 +16,8 @@ let Products:addProducts;
          });
 
          When('verify the MyCart page URL', async function () {
-           await Products.verifyMyCartPageURL();
+            Products=new addProducts();
+            await Products.verifyMyCartPageURL();
          });
 
          When('verify two of the products in MyCart and click checkout button', async function () {

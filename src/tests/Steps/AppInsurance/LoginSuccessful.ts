@@ -32,6 +32,7 @@ Given('User launch the page', async function () {
 
   Given('User navigate to register page', async function () {
     await loginPage.assertHomePage();
+    await loginPage.createNewInsurance();
   });
 
 // Fill policy details method

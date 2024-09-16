@@ -8,14 +8,16 @@ import { pageObject } from "../../Hooks/PageObjects";
 // Locators for app insurance application
 const PageLocators = {
     userName:"//input[@id='username']",
+    newInsurance:"//button[@type='submit']",
     password:"//input[@id='Password']",
     submit:"//button[@class='loginButton']",
-    homePageText:"//h1[text()='Insurance Policy Details']",
+    homePageText:"//h1[text()='Welcome to the Dashboard']",
     name:"//input[@id='Name']",
     email:"//input[@id='email']",
     address:"//input[@id='Address']",
     dateOfBirth:"//input[@id='DateOfBirth']",
-    policyType:"//select[@name='PolicyType']",
+    healthInsurancePolicyType:"//input[@value='Health Insurance ']",
+    gender:"//input[@value='Male']",
     sumInsured:"//select[@name='SumInsured']",
     premiumAmount:"//input[@id='Premium']",
     registerSubmit:"//button[@class='insuranceButton']",
@@ -56,7 +58,8 @@ async addDetailsForPolicy()
     await clickAndSendkeys(PageLocators.name,name);
     await clickAndSendkeys(PageLocators.email,name+"@"+name+".com");
     await clickAndSendkeys(PageLocators.address,"chennai");
-    await select(PageLocators.policyType,"Health Insurance");
+    await toClick(PageLocators.healthInsurancePolicyType);
+    await toClick(PageLocators.gender);
     await pageObject.page.waitForTimeout(2000);
     await select(PageLocators.sumInsured,"1,00,000");
     await clickAndSendkeys(PageLocators.premiumAmount,"1000"); 
@@ -70,7 +73,12 @@ await toClick(PageLocators.registerSubmit);
 
 async assertHomePage()
 {
-    await assertText(PageLocators.homePageText,"Insurance Policy Details");
+    await assertText(PageLocators.homePageText,"Welcome to the Dashboard");
+    
 }
 
+async createNewInsurance()
+{
+    await toClick(PageLocators.newInsurance); 
+}
 }

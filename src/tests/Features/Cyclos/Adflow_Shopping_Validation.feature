@@ -14,19 +14,21 @@ Scenario: Validating the adflow portal
     And Enter "0.10" amount 
     And click the gift vocher option
     And Validate the gift vocher page
-    Then click the confirm button to complete the process
-    Then verify the gift vocher details
+    And click the confirm button to complete the process
+    And verify the gift vocher details
+    Then User take final order confirmation screenshot
 
 @jeyagandhi_Web_giftVocherFlow
 Scenario Outline: Adding Cinema Vocher and validating the vocher
     Given User navigate to Home page and click dashboard
     When I click on Vocher Module
     And navigate to '<VocherType>' Vocher option
-    And Enter "0.10" amount 
+    And Enter '<amountValue>' amount 
     And click the gift vocher option
-    Then user should see the amount maximum message
-
+    And user should see the amount maximum message
+    Then User take final order confirmation screenshot
+    
  Examples:
- |VocherType|
- |Gift      |
- |Cinema    |
+ |VocherType|amountValue|
+ |Gift      |0.10       |
+ |Cinema    |0.10       |

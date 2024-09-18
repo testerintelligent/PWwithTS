@@ -19,8 +19,8 @@ Given('User navigate to Home page and click dashboard', async function () {
 
   // Method for navigating to gift vocher option in cyclos vocher page 
 
-  When('navigate to Gift Vocher option', async function () {
-    await CyclocsVocherpage.gotoGiftVocher();
+  When('navigate to {string} Vocher option', async function (vocherType:any) {
+    await CyclocsVocherpage.gotoGiftVocher(vocherType);
   });
 
   // Method for validating gift vocher in cyclos vocher page
@@ -31,9 +31,14 @@ Given('User navigate to Home page and click dashboard', async function () {
 
  // Method for filling gift vocher amount in cylcos vocher page 
 
-  When('Enter the amount and click the gift vocher option', async function () {
-   await CyclocsVocherpage.giftVocherAmount();
+  When('Enter {string} amount', async function (amount:any) {
+   await CyclocsVocherpage.giftVocherAmount(amount);
   });
+
+  // Method for confirmation gift vocher page
+  When('click the gift vocher option', async function () {
+    await CyclocsVocherpage.giftVocherNext();
+   });
 
   // Method for confirmation in cyclos vocher page
 
@@ -45,4 +50,8 @@ Given('User navigate to Home page and click dashboard', async function () {
 
   Then('verify the gift vocher details', async function () {
   await CyclocsVocherpage.assertGiftVocherPage();
+  });
+
+  Then('user should see the amount maximum message',async function() {
+    await CyclocsVocherpage.asserterrorMessage;
   });

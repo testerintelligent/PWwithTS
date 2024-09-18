@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "cucumber-js test",
-    "test1": "cucumber-js test --tags  @magesh_API_Reqres"
+    "test1": "cucumber-js test --tags  @jeyagandhi_Web_giftVocherFlow"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.46.1",
+    "@playwright/test": "^1.47.1",
     "@types/node": "^20.14.10",
     "multiple-cucumber-html-reporter": "^3.6.2"
   },

@@ -6,14 +6,13 @@ let Cyclosmarketplacepage:cyclosMarketPlacePage;
 // Method for navigate to cyclos market place page
 
 Given('I navigate to the marketplace', async function () {
-    Cyclosmarketplacepage=new cyclosMarketPlacePage();
+  Cyclosmarketplacepage=new cyclosMarketPlacePage();
     await Cyclosmarketplacepage.MarketPlaceButton();
   });
 
 // Method for products selection in cyclos market place page 
 
   Given('I select the item from marketplace', async function () {
-    Cyclosmarketplacepage=new cyclosMarketPlacePage();
     await Cyclosmarketplacepage.SearchButton();
     await Cyclosmarketplacepage.SelectItem();
     await Cyclosmarketplacepage.VerifyItem();
@@ -22,14 +21,12 @@ Given('I navigate to the marketplace', async function () {
 // Method for performing payment in cyclos market place page
 
 Given('I perform the payment', async function () {
-  Cyclosmarketplacepage=new cyclosMarketPlacePage();
   await Cyclosmarketplacepage.MakePaymentOption;
 });
 
 // Method for payment confirmation in cyclos market place page
 
 Given('I enter the amount for the item', async function () {
-  Cyclosmarketplacepage=new cyclosMarketPlacePage();
   await Cyclosmarketplacepage.enterUserAmount;
   await Cyclosmarketplacepage.nextButton;
   await Cyclosmarketplacepage.paymentConfirm;
@@ -38,6 +35,10 @@ Given('I enter the amount for the item', async function () {
 // Method for clicking confirm button in cyclos market place page
 
 Given('I confirm the payment', async function () {
-  Cyclosmarketplacepage=new cyclosMarketPlacePage();
   await Cyclosmarketplacepage.confirmButton;
+});
+
+When('And user click on Payment',async function()
+{
+   await Cyclosmarketplacepage.clickPayment();
 });

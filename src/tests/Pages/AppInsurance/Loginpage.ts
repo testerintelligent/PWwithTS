@@ -56,7 +56,7 @@ async addDetailsForPolicy()
     const name="Jaya"+Date.now();
     await pageObject.page.mouse.move(20, 40);
     await clickAndSendkeys(PageLocators.name,name);
-    await clickAndSendkeys(PageLocators.email,name+"@"+name+".com");
+    await clickAndSendkeys(PageLocators.email,name+"@gmail.com");
     await clickAndSendkeys(PageLocators.address,"chennai");
     await toClick(PageLocators.healthInsurancePolicyType);
     await toClick(PageLocators.gender);

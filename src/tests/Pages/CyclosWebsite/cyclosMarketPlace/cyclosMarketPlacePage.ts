@@ -31,14 +31,11 @@ private PageLocators={
      }
 
     
-    async SelectItem():Promise<any>{
-   
-    
+    async SelectItem():Promise<any>{   
         await pageObject.page.locator(this.PageLocators.SelectItem).click();
      }
 
      async VerifyItem():Promise<any>{
-    
         await assertText(this.PageLocators.VerifyItem," Matt photo store ");
      }
 
@@ -63,7 +60,6 @@ private PageLocators={
        
        async confirmButton():Promise<any>{
           await toClick(this.PageLocators.confirmButton);
-        //   console.log("Item Confirmation")
        }
 
 }

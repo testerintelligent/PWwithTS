@@ -37,8 +37,3 @@ Given('I enter the amount for the item', async function () {
 Given('I confirm the payment', async function () {
   await Cyclosmarketplacepage.confirmButton;
 });
-
-When('And user click on Payment',async function()
-{
-   await Cyclosmarketplacepage.clickPayment();
-});

@@ -4,8 +4,11 @@ Feature: Login_Validation_InsuranceApp
 Scenario Outline: Login Creation
 Given User launch the page
 When user enter '<username>' and '<password>'
-Then user able to navigate home page
+Then user '<not>' able to navigate home page
 
 Examples:
-|username     |password|
-|test@test.com|12345   |
+|username           |password |not|
+|test@test.com      |12345    |Yes|
+|test@test.com      |123455   |No |
+|test               |12345    |No |
+|jeya.jina@gmail.com|1234     |Yes|

@@ -24,14 +24,14 @@ Given('User launch the page', async function () {
 
 // Navigate Home page method
 
-  Then('user able to navigate home page', async function () {
-   await loginPage.assertHomePage();
+  Then('user {string} able to navigate home page', async function (option:any) {
+   await loginPage.assertHomePage(option);
   });
 
 // Navigate to register page method 
 
   Given('User navigate to register page', async function () {
-    await loginPage.assertHomePage();
+    // await loginPage.assertHomePage(option);
     await loginPage.createNewInsurance();
   });
 

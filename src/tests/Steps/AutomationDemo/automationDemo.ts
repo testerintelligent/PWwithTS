@@ -3,7 +3,7 @@ import { automationDemoPage } from "../../Pages/automationDemoPage/automationDem
 import { pageObject } from "../../Hooks/PageObjects";
 
 let demoPage:automationDemoPage;
-
+let demoPage1:automationDemoPage;
 // Launch application method
 Given('User Launch the automation demo site', async function () {
     demoPage = new automationDemoPage()
@@ -11,19 +11,29 @@ Given('User Launch the automation demo site', async function () {
   });
 
 // Fill Mandatory details method 
-  Given('fill the mandatory details', async function () {
-    await demoPage.enterFirstName("Tester");
-    await demoPage.enterLastName("one")
+  Given('fill the mandatory details {string} and {string}' , async function (firstName:string,lastName:string) {
+    await demoPage.enterFirstName(firstName);
+    await demoPage.enterLastName(lastName)
   }); 
 
   Given('upload an file in the portal', async function () {
     
   });
-
-  Given('Click submit and navigate to next page', async function () {
-    //await demoPage.submit();
+  Given('Fill the address details,Email,and phone Number fileds', async function () {
+    await demoPage.enterContactDetails();
+  });
+  Given('Enter the Gender details as {string}', async function (GenderType:string) {
+    await demoPage.enterGenderDetails(GenderType);
   });
 
-  Then('Verify the Registration page details', async function () {
-    
+  Then('Validate the file is uploaded or not', async function () {
+    await demoPage.validateFile();
+  });
+
+  Given('User enters the email address as {string}', async function (email:string) {
+    demoPage1 = new automationDemoPage();
+    await demoPage1.enterEmailAddress(email);
+  });
+  Then('Validate whether the email is correct or not', async function () {
+    await demoPage1.ValiadateEmail();
   });

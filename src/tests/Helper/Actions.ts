@@ -11,7 +11,7 @@ export async function toClick(Webelement:string){
 export async function sendkeys(Webelement:string,text:string){
     await pageObject.page.locator(Webelement).fill(text);
 }
-export async function clickAndSendkeys(Webelement:string,text:string){
+export async function clickAndSendkeys(Webelement:string,text:any){
     await pageObject.page.locator(Webelement).click();
     await pageObject.page.locator(Webelement).fill(text);
 }

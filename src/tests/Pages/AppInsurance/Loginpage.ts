@@ -20,9 +20,11 @@ const PageLocators = {
     healthInsurancePolicyType:"//input[@value='Health Insurance ']",
     gender:"//input[@value='Male']",
     sumInsured:"//select[@name='SumInsured']",
+    registerPageText:"//h3[text()='Create an Account']",
     premiumAmount:"//input[@id='Premium']",
     registerSubmit:"//button[@class='insuranceButton']",
-    assertInsSubmit:"//p[text()='Insurance policy created successfully.']"
+    assertInsSubmit:"//p[text()='Insurance policy created successfully.']",
+    registerLink:"//a[@href='/register']"
 }
 
 export class LoginPage{
@@ -51,25 +53,9 @@ async assertRegisterPage()
     await assertText(PageLocators.assertInsSubmit,"Insurance policy created successfully.");
 }
 
-async addDetailsForPolicy()
-{
-     let date = "1991-12-04"
-    const name="Jaya"+Date.now();
-    await pageObject.page.mouse.move(20, 40);
-    await clickAndSendkeys(PageLocators.name,name);
-    await clickAndSendkeys(PageLocators.email,name+"@gmail.com");
-    await clickAndSendkeys(PageLocators.address,"chennai");
-    await toClick(PageLocators.healthInsurancePolicyType);
-    await toClick(PageLocators.gender);
-    await pageObject.page.waitForTimeout(2000);
-    await select(PageLocators.sumInsured,"1,00,000");
-    await clickAndSendkeys(PageLocators.premiumAmount,"1000"); 
-    await Fill(PageLocators.dateOfBirth, date);
-}
-
-async submitPage()
-{
-await toClick(PageLocators.registerSubmit);
+async assertRegisterPageText()
+{   await toClick(PageLocators.registerLink);
+    await assertText(PageLocators.registerPageText,"Create an Account");
 }
 
 async assertHomePage(option:any)

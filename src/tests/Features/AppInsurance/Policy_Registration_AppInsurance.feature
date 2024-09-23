@@ -1,12 +1,8 @@
 Feature: Policy_Registration_AppInsurance
 
-Background: Login Page
-Given User launch the page
-When user enter 'test@test.com' and '12345'
-
 @Jeyagandhi_RegisterPolicy
 Scenario: Policy Creation for AppInsurance
-Given User navigate to register page
+Given User launch the page and navigate to register page
 When User enter the details
-Then user click on submit
-And the user should able to see the details
+And user click on submit
+Then the user should able to see the details

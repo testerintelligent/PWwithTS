@@ -1,14 +1,12 @@
 import { Given,Then,When } from "@cucumber/cucumber";
 import { newInsurance } from "../../Pages/AppInsurance/newInsurancePage";
 import { pageObject } from "../../Hooks/PageObjects";
-import { assertText, assertURL, sendkeys, toClick } from "../../Helper/Actions";
-import { send } from "process";
 
 let newinsurancePage:newInsurance;
 
 // Launch Application Method
 
-Given('User launch the page', async function () {
+Given('User launch the application', async function () {
     newinsurancePage = new newInsurance()
     await newinsurancePage.navigate();
   });
@@ -21,4 +19,8 @@ Given('User launch the page', async function () {
     
 When('user click on New Insurance link',async function(){
     await newinsurancePage.clickNewInsurance();
+  });
+
+  Then('And User enters the personal detail',async function(firsteName:string,email:any,dob:Date,gender:string,policytype:string) {
+    await newinsurancePage.enterDetails(firsteName,email,dob,gender,policytype);
   });

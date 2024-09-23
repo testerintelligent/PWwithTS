@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "cucumber-js test",
+
     "test1": "cucumber-js test --tags  @Jeyagandhi_RegisterPolicy"
   },
   "keywords": [],

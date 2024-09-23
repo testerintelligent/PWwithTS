@@ -1,8 +1,5 @@
 import {  expect, Page } from "@playwright/test";
 import {  clickAndSendkeys, launchURL, toClick , assertText, select, Fill, waitSelector } from "../../Helper/Actions";
-import { url } from "inspector";
-import { send } from "process";
-import { cli } from "winston/lib/winston/config";
 import { pageObject } from "../../Hooks/PageObjects";
 
 // Locators for app insurance application

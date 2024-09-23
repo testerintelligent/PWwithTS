@@ -53,18 +53,18 @@ Given('Test get request {string}', async function (URL) {
     api=new API();
     await api.loginApi();
   });
-
-  Given('Issue policy from insurance app {string}', async function (URL) {
-    api=new API();
-    await api.issuePolicy();
+// 
+    When('Issue policy from insurance app {string} with {string},{string}, {string}, {string}, {string}, {string}, {string} and {string}', async function (URL,Name,Gender,Email,Address,DateOfBirth,PolicyType,SumInsured,Premium) {
+    
+    await api.issuePolicy(URL,Name,Gender,Email,Address,DateOfBirth,PolicyType,SumInsured,Premium);
+    //
   });
 
   Given('I retrieve the list of users from insurance app {string}', async function (URL) {
-    api=new API();
+   
     await api.getPolicy();
   });
 
-  Given('I delete the policy from insurance app {string}', async function (URL) {
-    api=new API();
-    await api.getPolicy();
+  Given('Delete the already existed Insurance {string}', async function (URL) {
+    await api.deletePolicy(URL);
   });

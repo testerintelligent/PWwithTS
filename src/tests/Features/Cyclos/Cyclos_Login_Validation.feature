@@ -1,4 +1,4 @@
- @jeyagandhi_Web_Cyclosdemo @magesh_add_Invalid
+ @jeyagandhi_Web_Cyclosdemo 
 Feature:Cyclos_Payment_Validation
 
     Scenario:Cyclos login with valid credentials 

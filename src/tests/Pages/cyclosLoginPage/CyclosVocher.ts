@@ -16,7 +16,9 @@ private PageLocators={
     vocherButton:"//div[text()=' My vouchers ']",
     VocherPageValidation:"//div[text()=' Search vouchers ']",
     buyVochers:"//div[text()='Buy vouchers']",
-    giftVocher:"//a[text()=' Restaurant voucher ']",
+    giftVocherRestaurant:"//a[text()=' Restaurant voucher ']",
+    giftVocherCinema:"//a[text()=' Cinema voucher ']",
+    giftVocherGift:"//a[text()=' Gift voucher ']",
     cyclosLogo:"//div[text()='Cyclos']",
     giftVocherAmountText:"//input[@placeholder='0,00']",
     giftVocherText:"//div[contains(text(),' Restaurant voucher')]",
@@ -25,7 +27,8 @@ private PageLocators={
     giftConfirmationText:"//div[text()=' Buy confirmation ']",
     giftAmountText:"(//div[@class='d-flex label-value-value'])[2]" ,
     giftVocherStatus:"//div[text()='Open']",
-    confirm:"//span[text()='Confirm']"
+    confirm:"//span[text()='Confirm']",
+    errorMessage:"//div[text()='The current user exceeds the maximum allowed open amount of 500.00 for vouchers of this type. The current open amount is 500.00.']"
 }
   
 // Web interaction methods for vocher page
@@ -38,15 +41,28 @@ private PageLocators={
         await assertText(this.PageLocators.cyclosLogo,"Cyclos");
     }
 
-    async clickVocherButton(){
+    async clickVocherButton():Promise<any>{
         await toClick(this.PageLocators.vocherButton);
         await assertText(this.PageLocators.VocherPageValidation,"Search vouchers");
     }
 
-    async gotoGiftVocher()
+    async gotoGiftVocher(vocherType:any):Promise<any>
     {
         await toClick(this.PageLocators.buyVochers);
-        await toClick(this.PageLocators.giftVocher);
+
+        //If condition for selecting Vochertype : Available vocher -cinema,Restaurant,Gift
+        if(vocherType=="Restaurant")
+        {
+            await toClick(this.PageLocators.giftVocherRestaurant);
+        }
+        else if(vocherType=="Gift")
+        {
+            await toClick(this.PageLocators.giftVocherGift);
+        }
+        else
+        {
+            await toClick(this.PageLocators.giftVocherCinema);
+        }
     }
 
     async verifyHomePageURL():Promise<any>{
@@ -54,12 +70,17 @@ private PageLocators={
         await assertURL(homePageUrl);
     }
 
-    async giftVocherAmount():Promise<any>{
+    async giftVocherAmount(amount:any):Promise<any>{
         await toClick(this.PageLocators.giftVocherAmountText);
-        await sendkeys(this.PageLocators.giftVocherAmountText,"0.1");
+        await sendkeys(this.PageLocators.giftVocherAmountText,amount);
         await toClick(this.PageLocators.giftVocherCheckbox);
+    }
+
+    async giftVocherNext():Promise<any>
+    {
         await toClick(this.PageLocators.giftVocherNextButton);
     }
+
     async validateGiftVocher():Promise<any>{
         await assertText(this.PageLocators.giftVocherText,"Restaurant voucher");
         await assertText(this.PageLocators.giftAmountText,"0,10 IU's");
@@ -73,4 +94,8 @@ private PageLocators={
     async assertGiftVocherPage():Promise<any>{
        await assertText(this.PageLocators.giftVocherStatus,"Open");
     }
+
+    async asserterrorMessage():Promise<any>{
+        await assertText(this.PageLocators.errorMessage,"The current user exceeds the maximum allowed open amount of 500.00 for vouchers of this type. The current open amount is 500.00.");
+     }
 };

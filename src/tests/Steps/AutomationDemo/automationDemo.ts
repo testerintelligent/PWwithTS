@@ -3,11 +3,14 @@ import { automationDemoPage } from "../../Pages/automationDemoPage/automationDem
 import { pageObject } from "../../Hooks/PageObjects";
 
 let demoPage:automationDemoPage;
+
+// Launch application method
 Given('User Launch the automation demo site', async function () {
     demoPage = new automationDemoPage()
     await demoPage.navigate();
   });
 
+// Fill Mandatory details method 
   Given('fill the mandatory details', async function () {
     await demoPage.enterFirstName("Tester");
     await demoPage.enterLastName("one")

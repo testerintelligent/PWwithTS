@@ -1,6 +1,7 @@
 import { pageObject } from "../Hooks/PageObjects";
 import { expect, selectors } from "@playwright/test";
 import { execFile } from "child_process";
+ let arr:string[]=[];
 export async function launchURL(URL:string){
     await pageObject.page.goto(URL);
     pageObject.page
@@ -73,8 +74,27 @@ export async function responseData(response:any){
      console.log(await response.text());
 }
 
-export async function responseJSON(response:any){
-     console.log(await response.json());
+export  async function responseJSON(response:any):Promise<string|undefined>{
+   //  console.log( await response.json());
+   
+     const jsonResponse=await response.json();
+   
+     if (Array.isArray(jsonResponse) && jsonResponse.length > 0) {
+        // Check if the last object has an _id property
+        const lastItem = jsonResponse[jsonResponse.length - 1];
+        if (lastItem && lastItem._id) {
+            const id = lastItem._id; // Accessing the last object's _id
+            console.log('Fetched ID:', id);
+            return id; // Return the fetched ID
+        }else {
+            console.error('No _id property found in the last item:', lastItem);
+            return undefined; // Return undefined if no valid ID is found
+        }
+    }else {
+        console.error('No data available in response or incorrect format:', jsonResponse);
+        return undefined;
+    }
+ 
 }
 
 export async function responseURL(response:any){

@@ -53,10 +53,11 @@ async addDetailsForPolicy():Promise<any>
     const nextYearDate = new Date(startDate.getFullYear() + 1, startDate.getMonth(), startDate.getDate());
     const formattedendDate = format(nextYearDate, 'yyyy-MM-dd');
     const fname="Jaya";
+    const randomEmailString = Math.random().toString(36).substring(2, 10); 
     await pageObject.page.mouse.move(20, 40);
     await clickAndSendkeys(PageLocators.fname,fname);
     await clickAndSendkeys(PageLocators.lname,"Expleo");
-    await clickAndSendkeys(PageLocators.email,fname+"@gmail.com");
+    await clickAndSendkeys(PageLocators.email,randomEmailString+"@gmail.com");
     await clickAndSendkeys(PageLocators.passwordRegisterPage,"12345");
     await clickAndSendkeys(PageLocators.confirmPasswordRegisterPage,"12345");
     await clickAndSendkeys(PageLocators.startDate,formattedStartDate);

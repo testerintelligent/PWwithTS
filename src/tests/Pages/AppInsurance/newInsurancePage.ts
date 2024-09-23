@@ -1,5 +1,5 @@
 import {  expect, Page } from "@playwright/test";
-import {  clickAndSendkeys, launchURL, toClick , assertText, select, Fill, waitSelector } from "../../Helper/Actions";
+import {  assertText, clickAndSendkeys, launchURL, select, toClick  } from "../../Helper/Actions";
 import { pageObject } from "../../Hooks/PageObjects";
 
 // Locators for app insurance application
@@ -16,7 +16,11 @@ const PageLocators = {
     insurerGendermale:"//input[@value='Male']",
     policyType1:"//input[@value='Life Insurance ']",
     policyType2:"//input[@value='Health Insurance ']",
-    policyType3:"//input[@value='Vehicle Insurance ']"
+    policyType3:"//input[@value='Vehicle Insurance ']",
+    sumInsured:"//select[@name='SumInsured']",
+    premium:"//input[@id='Premium']",
+    submitPolicy:"//button[@type='submit']",
+    policyConfirmation:"//p[text()='Insurance policy created successfully.']"
 }
 
 export class newInsurance{
@@ -40,13 +44,15 @@ async clickNewInsurance()
   await toClick(PageLocators.newInsurance);
 }
 
-async enterDetails(firsteName:string,email:string,dob:Date,gender:string,policytype:string)
+async enterDetails(firsteName:string,email:string,dob:Date,gender:string,policytype:string,sumInsured:any)
 {
     await clickAndSendkeys(PageLocators.insurerName,firsteName);
     await clickAndSendkeys(PageLocators.insurerEmail,email);
     await clickAndSendkeys(PageLocators.insurerAddress,"Chennai");
     await clickAndSendkeys(PageLocators.insurerDateofBirth,dob);
-
+    await clickAndSendkeys(PageLocators.premium,"1000");
+    await select(PageLocators.sumInsured,sumInsured);
+     console.log(sumInsured)
 if(gender=="Female")
 {
     await toClick(PageLocators.insurerGenderFemale);
@@ -68,6 +74,12 @@ else
 {
     await toClick(PageLocators.policyType3);
 }
+}
+
+async submit()
+{
+    await toClick(PageLocators.submitPolicy);
+    // assertText(PageLocators.policyConfirmation,"Insurance policy created successfully.");
 }
 
 }

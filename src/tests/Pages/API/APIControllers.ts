@@ -3,6 +3,7 @@ import { pageObject } from "../../Hooks/PageObjects";
 import {dataForCookie} from "./apiDatas/postDatas";
 import {cookieVerification,responseRequest, responseData, responseHeaders, responseJSON, responseURL, setCookies, statusCode} from "../../Helper/Actions"
 import { assert } from "console";
+
 export class API{
   
      async getRequest(apiURL:string):Promise<any>{
@@ -126,21 +127,21 @@ export class API{
        expect(response.status()).toBe(200);    
 }
 
-async issuePolicy():Promise<any>{
-  const name = "Expleotester"+Date.now();
-  const response=await pageObject.page.request.post("http://192.168.99.141:5000/Dashboard",
+async issuePolicy(url:string,Name:string,Gender:string,Email:string,Address:string,DateOfBirth:Date,PolicyType:string,SumInsured:number,Premium:string):Promise<any>{
+  const response=await pageObject.page.request.post(url,
     {data:{
-      "Name": name,
-      "email": name+"@gmail.com",
-      "Address": "mepzoffice",
-      "DateOfBirth": "2002-01-04",
-      "PolicyType": "Health Insurance",
-      "SumInsured": "100000",
-      "Premium": "100"
+      "Name": Name,
+      "Gender":Gender,
+      "email": Email,
+      "Address": Address,
+      "DateOfBirth": DateOfBirth,
+      "PolicyType": PolicyType,
+      "SumInsured": SumInsured,
+      "Premium": Premium
     }});
        statusCode(response,201);
        responseJSON(response);
-       expect(response.status()).toBe(201);    
+       expect(response.status()).toBe(201);   
 }
 
 async getPolicy():Promise<any>{
@@ -150,10 +151,20 @@ async getPolicy():Promise<any>{
        expect(response.status()).toBe(200);    
 }
 
-async deletePolicy():Promise<any>{
-  const response=await pageObject.page.request.get("http://192.168.99.141:5000/Dashboard/66daa09240eeab8c102e2f4d")
-       statusCode(response,200);
-       responseJSON(response);
-       expect(response.status()).toBe(200);    
-}
+async deletePolicy(Url:string):Promise<any>{
+  
+    const response=await pageObject.page.request.get(`http://192.168.99.141:5000/Dashboard/`)
+    const id = await responseJSON(response);
+    if (id) {
+           console.log('Insurance ID:', id); // Should print the fetched ID
+      } else {
+             console.log('No valid Insurance ID found.'); // Will print if ID is undefined
+      }
+    statusCode(response,200);
+    const responseDelete=await pageObject.page.request.delete(`http://192.168.99.141:5000/Dashboard/${id}`)
+    expect(responseDelete.status()).toBe(200);    
+    statusCode(responseDelete,200);
+      
+  }
+ 
 }

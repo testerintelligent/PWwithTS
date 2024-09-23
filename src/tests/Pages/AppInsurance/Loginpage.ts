@@ -11,8 +11,7 @@ const PageLocators = {
     newInsurance:"//button[@type='submit']",
     password:"//input[@id='Password']",
     submit:"//button[@class='loginButton']",
-    homePageText:"//th[text()='Delete Record']",
-    loginErrorMessage:"//p[text()='Invalid username or password']",
+    homePageText:"//h1[text()='Welcome to the Dashboard']",
     name:"//input[@id='Name']",
     email:"//input[@id='email']",
     address:"//input[@id='Address']",
@@ -53,9 +52,25 @@ async assertRegisterPage()
     await assertText(PageLocators.assertInsSubmit,"Insurance policy created successfully.");
 }
 
-async assertRegisterPageText()
-{   await toClick(PageLocators.registerLink);
-    await assertText(PageLocators.registerPageText,"Create an Account");
+async addDetailsForPolicy()
+{
+     let date = "1991-12-04"
+    const name="Jaya"+Date.now();
+    await pageObject.page.mouse.move(20, 40);
+    await clickAndSendkeys(PageLocators.name,name);
+    await clickAndSendkeys(PageLocators.email,name+"@gmail.com");
+    await clickAndSendkeys(PageLocators.address,"chennai");
+    await toClick(PageLocators.healthInsurancePolicyType);
+    await toClick(PageLocators.gender);
+    await pageObject.page.waitForTimeout(2000);
+    await select(PageLocators.sumInsured,"1,00,000");
+    await clickAndSendkeys(PageLocators.premiumAmount,"1000"); 
+    await Fill(PageLocators.dateOfBirth, date);
+}
+
+async submitPage()
+{
+await toClick(PageLocators.registerSubmit);
 }
 
 async assertHomePage(option:any)

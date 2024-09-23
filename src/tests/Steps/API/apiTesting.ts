@@ -5,35 +5,7 @@ import {GoData, users} from "../../Pages/API/apiDatas/postDatas";
 import { logger } from "../../Helper/logger";
 let api:API;
 
-// Post Request for Log into Insurance app Api
 
-Given('Test Login functionality for insurance app {string}', async function (URL) {
-    api=new API();
-    await api.loginApi();
-    logger.info("info in get request");
-  });
-
-  // Post request for issue policy in Insurance app Api
-
-  When('Issue policy from insurance app {string}', async function (URL) {
-    await api.postRequest(URL,users);
-    logger.error("Error in post request");
-  });
-
-  // Get request for fetching list of users in insurnace app api
-
-  When('I retrieve the list of users from insurance app {string}', async function (URL) {
-    api=new API();
-    await api.getPolicy();
-    logger.info("info in get request");
-  });
-
-  // Delete Request for Insurance app Api 
-
-  When('Test delete request {string}', async function (URL) {
-    await api.deleteRequest(URL);
-    logger.info("Error in delete request");
-  });
 
   // Put Request for Insurance app Api
 
@@ -73,10 +45,22 @@ Given('Test Login functionality for insurance app {string}', async function (URL
     await api.getRepository(URL,users,Status);
   });
 
-// Get Request for reqres Api
+  Given('Test Login functionality for insurance app {string}', async function (URL) {
+    api=new API();
+    await api.loginApi();
+  });
+// 
+    When('Issue policy from insurance app {string} with {string},{string}, {string}, {string}, {string}, {string}, {string} and {string}', async function (URL,Name,Gender,Email,Address,DateOfBirth,PolicyType,SumInsured,Premium) {
+    
+    await api.issuePolicy(URL,Name,Gender,Email,Address,DateOfBirth,PolicyType,SumInsured,Premium);
+    //
+  });
 
-Given('Test get request {string}', async function (URL) {
-  api=new API();
-  await api.getRequest;
-  logger.info("info in get request");
-});
+  Given('I retrieve the list of users from insurance app {string}', async function (URL) {
+   
+    await api.getPolicy();
+  });
+
+  Given('Delete the already existed Insurance {string}', async function (URL) {
+    await api.deletePolicy(URL);
+  });

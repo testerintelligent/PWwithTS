@@ -1,7 +1,7 @@
 import { Given,Then,When } from "@cucumber/cucumber";
 import { LoginPage } from "../../Pages/AppInsurance/Loginpage";
 import { pageObject } from "../../Hooks/PageObjects";
-import { assertURL, sendkeys } from "../../Helper/Actions";
+import { assertText, assertURL, sendkeys } from "../../Helper/Actions";
 import { send } from "process";
 
 let loginPage:LoginPage;
@@ -31,20 +31,7 @@ Given('User launch the page', async function () {
 // Navigate to register page method 
 
   Given('User navigate to register page', async function () {
-    // await loginPage.assertHomePage(option);
-    await loginPage.createNewInsurance();
-  });
-
-// Fill policy details method
-
-  When('User enter the details', async function () {
-   await loginPage.addDetailsForPolicy();
-  });
-
-// Submit details method 
-
-  Then('user click on submit', async function () {
-    await loginPage.submitPage();
+    await loginPage.assertRegisterPageText();
   });
 
 // Assert register details method

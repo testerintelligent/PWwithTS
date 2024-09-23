@@ -1,8 +1,5 @@
 import {  expect, Page } from "@playwright/test";
 import {  clickAndSendkeys, launchURL, toClick , assertText, select, Fill, waitSelector } from "../../Helper/Actions";
-import { url } from "inspector";
-import { send } from "process";
-import { cli } from "winston/lib/winston/config";
 import { pageObject } from "../../Hooks/PageObjects";
 
 // Locators for app insurance application
@@ -20,9 +17,11 @@ const PageLocators = {
     healthInsurancePolicyType:"//input[@value='Health Insurance ']",
     gender:"//input[@value='Male']",
     sumInsured:"//select[@name='SumInsured']",
+    registerPageText:"//h3[text()='Create an Account']",
     premiumAmount:"//input[@id='Premium']",
     registerSubmit:"//button[@class='insuranceButton']",
-    assertInsSubmit:"//p[text()='Insurance policy created successfully.']"
+    assertInsSubmit:"//p[text()='Insurance policy created successfully.']",
+    registerLink:"//a[@href='/register']"
 }
 
 export class LoginPage{
@@ -83,6 +82,11 @@ async assertHomePage(option:any)
         await assertText(PageLocators.loginErrorMessage,"Invalid username or password");
     }
     
+}
+
+async assertRegisterPageText()
+{
+    await assertText(PageLocators.registerPageText,"Create an Account");
 }
 
 async createNewInsurance()

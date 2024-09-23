@@ -12,3 +12,6 @@ Examples:
 |test@test.com      |123455   |No |
 |test               |12345    |No |
 |jeya.jina@gmail.com|1234     |Yes|
+|test@test.com      |wrongpw  |No |
+|test@test.com      |123456   |No |
+|invalid@user.com   |12345    |No |

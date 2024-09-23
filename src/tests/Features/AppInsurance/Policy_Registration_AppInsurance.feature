@@ -5,4 +5,4 @@ Scenario: Policy Creation for AppInsurance
 Given User launch the page and navigate to register page
 When User enter the details
 And user click on submit
-Then the user should able to see the details
+Then user should able to see the details

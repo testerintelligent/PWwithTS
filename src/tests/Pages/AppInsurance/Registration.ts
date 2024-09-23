@@ -1,5 +1,7 @@
-import {  clickAndSendkeys, launchURL, toClick , assertText, select, Fill, waitSelector, sendkeys } from "../../Helper/Actions";
+import { expect } from "@playwright/test";
+import {  clickAndSendkeys, launchURL, toClick , assertText, select, Fill, waitSelector, sendkeys, assertURL } from "../../Helper/Actions";
 import { pageObject } from "../../Hooks/PageObjects";
+const { format } = require('date-fns');
 
 // Locators for app insurance application
 const PageLocators = {
@@ -24,9 +26,10 @@ const PageLocators = {
     sumInsured:"//select[@name='SumInsured']",
     registerPageText:"//h3[text()='Create an Account']",
     premiumAmount:"//input[@id='Premium']",
-    registerSubmit:"//button[@class='insuranceButton']",
+    registerSubmit:"//button[@class='registerButton']",
     assertInsSubmit:"//p[text()='Insurance policy created successfully.']",
-    registerLink:"//a[@href='/register']"
+    registerLink:"//a[@href='/register']",
+    registerSuccessfulMessage:"//div[@class='success-message']//h2[text()='Registration successful!']"
 }
 
 export class Registration{
@@ -52,29 +55,30 @@ export class Registration{
     
 async addDetailsForPolicy():Promise<any>
 {    
-    const today = new Date();
-    const day = String(today.getDate()).padStart(2, '0'); // Get day and pad with leading zero if needed
-    const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed, so add 1
-    const year = today.getFullYear(); // Get the full year
+    const date1 = new Date('2024-09-23T00:00:00Z');
+    const formattedDate = format(date1, 'yyyy-MM-dd');
 
-    const startdate = `${day}-${month}-${year}`; 
-    console.log(startdate)
-     let date = "1991-12-04"
-    const fname="Jaya"+Date.now();
+    const fname="Jaya";
     await pageObject.page.mouse.move(20, 40);
     await clickAndSendkeys(PageLocators.fname,fname);
     await clickAndSendkeys(PageLocators.lname,"Expleo");
     await clickAndSendkeys(PageLocators.email,fname+"@gmail.com");
     await clickAndSendkeys(PageLocators.passwordRegisterPage,"12345");
     await clickAndSendkeys(PageLocators.confirmPasswordRegisterPage,"12345");
-    await sendkeys(PageLocators.startDate,"1991-03-02");
+    await clickAndSendkeys(PageLocators.startDate,formattedDate);
+    await clickAndSendkeys(PageLocators.endDate,"2025-09-22");
     await clickAndSendkeys(PageLocators.address,"chennai");
     await sendkeys(PageLocators.phoneNumber,"1234567897");
 }
 
-async submitPage():Promise<any>
+async submitPage()
 {
 await toClick(PageLocators.registerSubmit);
+}
+
+async assertRegistrationSuccessMessage()
+{
+    await assertText(PageLocators.registerSuccessfulMessage,"Registration successful!");
 }
 
 }

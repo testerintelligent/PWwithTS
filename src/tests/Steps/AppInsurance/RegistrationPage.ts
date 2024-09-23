@@ -29,3 +29,7 @@ Given('User launch the page and navigate to register page', async function () {
   Then('user click on submit', async function () {
     await registrationPage.submitPage();
   });
+
+  Then('user should able to see the details',async function(){
+await registrationPage.assertRegistrationSuccessMessage();
+  });

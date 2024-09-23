@@ -11,7 +11,8 @@ const PageLocators = {
     newInsurance:"//button[@type='submit']",
     password:"//input[@id='Password']",
     submit:"//button[@class='loginButton']",
-    homePageText:"//h1[text()='Welcome to the Dashboard']",
+    homePageText:"//th[text()='Delete Record']",
+    loginErrorMessage:"//p[text()='Invalid username or password']",
     name:"//input[@id='Name']",
     email:"//input[@id='email']",
     address:"//input[@id='Address']",
@@ -84,6 +85,11 @@ async assertHomePage(option:any)
         await assertText(PageLocators.loginErrorMessage,"Invalid username or password");
     }
     
+}
+
+async assertRegisterPageText()
+{
+    await assertText(PageLocators.registerPageText,"Create an Account");
 }
 
 async createNewInsurance()

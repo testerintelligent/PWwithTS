@@ -40,14 +40,7 @@ export class Registration{
 
         await toClick(PageLocators.registerLink);
     }
-    
-    async enterUsername(username:string):Promise<any>{
-        await clickAndSendkeys(PageLocators.userName,username);
-    }
-    async enterPassword(password:string):Promise<any>{
-        await clickAndSendkeys(PageLocators.password,password);
-    }
-    
+        
     async submit():Promise<any>
     {
         await toClick(PageLocators.submit);
@@ -55,9 +48,10 @@ export class Registration{
     
 async addDetailsForPolicy():Promise<any>
 {    
-    const date1 = new Date('2024-09-23T00:00:00Z');
-    const formattedDate = format(date1, 'yyyy-MM-dd');
-
+    const startDate = new Date();
+    const formattedStartDate = format(startDate, 'yyyy-MM-dd');
+    const nextYearDate = new Date(startDate.getFullYear() + 1, startDate.getMonth(), startDate.getDate());
+    const formattedendDate = format(nextYearDate, 'yyyy-MM-dd');
     const fname="Jaya";
     await pageObject.page.mouse.move(20, 40);
     await clickAndSendkeys(PageLocators.fname,fname);
@@ -65,8 +59,8 @@ async addDetailsForPolicy():Promise<any>
     await clickAndSendkeys(PageLocators.email,fname+"@gmail.com");
     await clickAndSendkeys(PageLocators.passwordRegisterPage,"12345");
     await clickAndSendkeys(PageLocators.confirmPasswordRegisterPage,"12345");
-    await clickAndSendkeys(PageLocators.startDate,formattedDate);
-    await clickAndSendkeys(PageLocators.endDate,"2025-09-22");
+    await clickAndSendkeys(PageLocators.startDate,formattedStartDate);
+    await clickAndSendkeys(PageLocators.endDate,formattedendDate);
     await clickAndSendkeys(PageLocators.address,"chennai");
     await sendkeys(PageLocators.phoneNumber,"1234567897");
 }

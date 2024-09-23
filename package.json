@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "cucumber-js test",
-    "test1": "cucumber-js test --tags  @sevugan_API_appInsurance"
+    "test1": "cucumber-js test --tags  @Jeyagandhi_RegisterPolicy"
   },
   "keywords": [],
   "author": "",
@@ -18,7 +18,7 @@
   "dependencies": {
     "@cucumber/cucumber": "^10.8.0",
     "cucumber": "^6.0.7",
-    "playwrighttypescript": "file:",
+    "date-fns": "^4.1.0",
     "ts-node": "^10.9.2",
     "winston": "^3.14.2"
   }

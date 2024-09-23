@@ -11,8 +11,7 @@ const PageLocators = {
     newInsurance:"//button[@type='submit']",
     password:"//input[@id='Password']",
     submit:"//button[@class='loginButton']",
-    homePageText:"//th[text()='Delete Record']",
-    loginErrorMessage:"//p[text()='Invalid username or password']",
+    homePageText:"//h1[text()='Welcome to the Dashboard']",
     name:"//input[@id='Name']",
     email:"//input[@id='email']",
     address:"//input[@id='Address']",
@@ -20,9 +19,11 @@ const PageLocators = {
     healthInsurancePolicyType:"//input[@value='Health Insurance ']",
     gender:"//input[@value='Male']",
     sumInsured:"//select[@name='SumInsured']",
+    registerPageText:"//h3[text()='Create an Account']",
     premiumAmount:"//input[@id='Premium']",
     registerSubmit:"//button[@class='insuranceButton']",
-    assertInsSubmit:"//p[text()='Insurance policy created successfully.']"
+    assertInsSubmit:"//p[text()='Insurance policy created successfully.']",
+    registerLink:"//a[@href='/register']"
 }
 
 export class LoginPage{

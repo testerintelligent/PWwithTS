@@ -1,6 +1,7 @@
 import {  expect, Page } from "@playwright/test";
-import {  assertText, clickAndSendkeys, launchURL, select, toClick  } from "../../Helper/Actions";
+import {  assertText, assertTextDisable, clickAndSendkeys, launchURL, select, toClick  } from "../../Helper/Actions";
 import { pageObject } from "../../Hooks/PageObjects";
+import { assert } from "console";
 
 // Locators for app insurance application
 const PageLocators = {
@@ -20,7 +21,15 @@ const PageLocators = {
     sumInsured:"//select[@name='SumInsured']",
     premium:"//input[@id='Premium']",
     submitPolicy:"//button[@type='submit']",
-    policyConfirmation:"//p[text()='Insurance policy created successfully.']"
+    policyConfirmation:"//p[text()='Insurance policy created successfully.']",
+    nameFieldMessage:"//p[text()='*Name is required']",
+    emailFieldMessage:"//p[text()='*Email is required']",
+    addressFieldMessage:"//p[text()='*Address is required']",
+    dobFieldMessgage:"//p[text()='*Date of Birth is required']",
+    genderFieldMessage:"//p[text()='*Gender is required']",
+    policyTypeMessgae:"//p[text()='*Please select at least one Policy Type']",
+    SumInsuredFieldMessage:"//p[text()='*Please select Sum Insured']",
+    premiumFieldMessage:"//p[text()='*Premium is required']"
 }
 
 export class newInsurance{
@@ -37,6 +46,38 @@ async loginPage(username:string,password:string)
     await clickAndSendkeys(PageLocators.userName,username);
     await clickAndSendkeys(PageLocators.password,password);
     await toClick(PageLocators.submit);
+}
+
+async entername(username:string){
+    await clickAndSendkeys(PageLocators.insurerName,username);
+}
+
+async enterEmail(email:string){
+    await clickAndSendkeys(PageLocators.insurerEmail,email);
+}
+
+async enterAddress(address:string){
+    await clickAndSendkeys(PageLocators.insurerAddress,address);
+}
+
+async enterdob(dob:string){
+    await clickAndSendkeys(PageLocators.insurerDateofBirth,dob);
+}
+
+async entergender(gender:string){
+    await clickAndSendkeys(PageLocators.insurerGendermale,gender);
+}
+
+async enterpolicyType(policyType:string){
+    await clickAndSendkeys(PageLocators.policyType3,policyType);
+}
+
+async enterSumInsured(sumInsured:string){
+    await clickAndSendkeys(PageLocators.sumInsured,sumInsured);
+}
+
+async enterPremium(premium:string){
+    await clickAndSendkeys(PageLocators.premium,premium);
 }
 
 //Clicking New Insurance
@@ -83,10 +124,37 @@ else
 }
 }
 
+//Submit the policy
 async submit()
 {
     await toClick(PageLocators.submitPolicy);
+}
+
+//Asserting Policy created Successful message
+async assertPolicyCreated()
+{
     await assertText(PageLocators.policyConfirmation,"Insurance policy created successfully.");
 }
 
+async fieldValidation()
+{
+    await assertText(PageLocators.nameFieldMessage,"*Name is required");
+    await assertText(PageLocators.emailFieldMessage,"*Email is required");
+    await assertText(PageLocators.addressFieldMessage,"*Address is required");
+    await assertText(PageLocators.dobFieldMessgage,"*Date of Birth is required");
+    await assertText(PageLocators.genderFieldMessage,"*Gender is required");
+    await assertText(PageLocators.policyTypeMessgae,"*Please select at least one Policy Type");
+    await assertText(PageLocators.SumInsuredFieldMessage,"*Please select Sum Insured");
+    await assertText(PageLocators.premiumFieldMessage,"*Premium is required");
+}
+
+async assertTextDisableName(fieldname:any)
+{
+     await assertTextDisable(PageLocators.nameFieldMessage,"*Name is required");
+}
+
+async assertTextDisableEmail()
+{
+     await assertTextDisable(PageLocators.emailFieldMessage,"*Email is required");
+}
 }

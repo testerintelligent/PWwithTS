@@ -26,12 +26,12 @@ const PageLocators = {
 export class newInsurance{
   
     //Interaction methods for App insurance - Login Page
-
 async navigate():Promise<any>{  
     let url="http://192.168.99.141:3000/";
     launchURL(url);
 }
 
+//Logn Page steps
 async loginPage(username:string,password:string)
 {
     await clickAndSendkeys(PageLocators.userName,username);
@@ -39,20 +39,26 @@ async loginPage(username:string,password:string)
     await toClick(PageLocators.submit);
 }
 
+//Clicking New Insurance
 async clickNewInsurance()
 {
   await toClick(PageLocators.newInsurance);
 }
 
-async enterDetails(firsteName:string,email:string,dob:Date,gender:string,policytype:string,sumInsured:any)
+//Entering the details to create Policy
+async enterDetails(firsteName:string,dob:Date,gender:string,policytype:string,sumInsured:any)
 {
+    const randomFigures = Math.random().toString();
+    const email = randomFigures.substr(2) + '@email.com';
+
     await clickAndSendkeys(PageLocators.insurerName,firsteName);
     await clickAndSendkeys(PageLocators.insurerEmail,email);
     await clickAndSendkeys(PageLocators.insurerAddress,"Chennai");
     await clickAndSendkeys(PageLocators.insurerDateofBirth,dob);
     await clickAndSendkeys(PageLocators.premium,"1000");
     await select(PageLocators.sumInsured,sumInsured);
-     console.log(sumInsured)
+  
+    //Condition for selecting Gender while creating policy
 if(gender=="Female")
 {
     await toClick(PageLocators.insurerGenderFemale);
@@ -61,7 +67,8 @@ else
 {
     await toClick(PageLocators.insurerGendermale);
 }
-   
+
+//Condition for Selecting Policy Type while creating Policy
 if(policytype=="Life Insurance")
 {
     await toClick(PageLocators.policyType1);
@@ -79,7 +86,7 @@ else
 async submit()
 {
     await toClick(PageLocators.submitPolicy);
-    // assertText(PageLocators.policyConfirmation,"Insurance policy created successfully.");
+    await assertText(PageLocators.policyConfirmation,"Insurance policy created successfully.");
 }
 
 }

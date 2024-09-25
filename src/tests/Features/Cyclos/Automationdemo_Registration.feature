@@ -1,7 +1,6 @@
 @sevugan_Web_Automationdemo
 Feature:Automationdemo_Registration
 
-
     Scenario:Validation of registration details in automation demo portal
         Given User Launch the automation demo site
         And fill the mandatory details "Tester" and "one"
@@ -16,8 +15,8 @@ Feature:Automationdemo_Registration
             Then Validate whether the email is correct or not 
 
          Examples:
-             |               Email                              |
-             |      magesh@208gmail.com   |
-             |      678@gmail.com                   |
-             |      @gmail.com                          |
-             |      @com                                      |   
+             |Email              |
+             |magesh@208gmail.com|
+             |678@gmail.com      |
+             |@gmail.com         |
+             |@com               |   

@@ -39,23 +39,3 @@ When('click on submit button without entering the details', async function () {
   When('user should validate the error message', async function () {
     await newInsurancePage.fieldValidation();
   });
-
-  When('user enter username as {string}', async function (name:string) {
-
-
-  
-  });
-
-  When('user should validate that no error message is displayed {string}', async function(fieldname:any) {
-    
-  });
-
-  When('user enter email as {string}', async function (email:string) {
-
- 
- 
- });
-
- When('user should validate that no error message is displayed for email field', async function(fieldname:any) {
-  
- });

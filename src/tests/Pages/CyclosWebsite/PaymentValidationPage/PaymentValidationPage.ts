@@ -7,7 +7,7 @@ export class PaymentValidation{
     private PageLocators={
         payButton:"(//a[@class='quick-access-item'])[1]",
         userSelectionButton:"//*[@formcontrolname='subject']//button",
-        userSelection:"//a[text()=' Demo one ']",
+        userSelection:"//a[text()=' Demo three ']",
         amountField:"//*[@formcontrolname='amount']//input",
         paymentConfirmation:"//div[@class='content-title d-flex']//div",
         nextButton:"(//button)[3]",

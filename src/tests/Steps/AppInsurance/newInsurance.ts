@@ -24,7 +24,7 @@ When('User enters the personal detail {string} {string} {string} {string} {strin
     await newInsurancePage.enterDetails(firsteName,dob,gender,policytype,sumInsured);
   });
 
-  Then('Submit the details and check whether policy is created', async function () {
+  Then('Submit the details', async function () {
      await newInsurancePage.submit();
 });
 

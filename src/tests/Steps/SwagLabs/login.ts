@@ -17,6 +17,7 @@ let swagLogin:cyclosloginPage;
   When('Click the submit button', async function () {
     await Loginpage.ClicklaunchButton();
   });
-  // Then('Verify the Home page', async function () {
-  //  // await Loginpage.verifyHomePageURL();
-  // });
+
+  Then('Verify {string} the Home page', async function (value:string) {
+   await Loginpage.verifyHomePageURL(value);
+  });

@@ -1,11 +1,12 @@
 import { Page } from "@playwright/test";
-import { assertURL, clickAndSendkeys, launchURL, toClick } from "../../../Helper/Actions";
+import { assertText, assertURL, clickAndSendkeys, launchURL, toClick } from "../../../Helper/Actions";
 import { cyclosloginPage } from "../../CyclosWebsite/cyclosLoginPage/cyclosLoginPage";
 
 const PageLocators={
-    usernameInputfield:"#user-name",
-    passwordInputField:"#password",
-    loginButton:"#login-button"
+    usernameInputfield:"//input[@id='user-name']",
+    passwordInputField:"//input[@id='password']",
+    loginButton:"//input[@id='login-button']",
+    errorLoginMessgae:"//h3[contains(text(),'Epic sadface:')]"
 }
 //Implement inheritance in this sub class
 export class loginPage extends cyclosloginPage{
@@ -26,10 +27,18 @@ export class loginPage extends cyclosloginPage{
         await toClick(PageLocators.loginButton);
     }
     
-    async verifyHomePageURL():Promise<any>{
+    async verifyHomePageURL(value:string):Promise<any>{
+
+        if(value=="Yes")
+        {
         const homePageUrl:string="https://www.saucedemo.com/v1/inventory.html";
         await assertURL(homePageUrl);
+        }
+        else
+        {  
+            const errorloginUrl:string="https://www.saucedemo.com/v1/";
+            await assertURL(errorloginUrl);
+        }
     }
-
 }
    

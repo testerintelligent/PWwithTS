@@ -23,7 +23,7 @@ When user entering "test@test.com" and "12345"
 And user click on New Insurance link
 And click on submit button without entering the details
 And user should validate the error message
-And user enter username as "sample"
-And user should validate that no error message is displayed "*Name is required"
-And user enter email as "samp@text.com"
-# And user should validate that no error message is displayed for email field
+And User enters the personal detail 'Tester' '1990-07-06' 'Female' 'Life Insurance' '3,00,000'
+Then Submit the details 
+And check whether policy is created
+

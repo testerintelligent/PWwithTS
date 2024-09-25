@@ -1,7 +1,4 @@
-import {  expect, Page } from "@playwright/test";
 import {  assertText, assertTextDisable, clickAndSendkeys, launchURL, select, toClick  } from "../../Helper/Actions";
-import { pageObject } from "../../Hooks/PageObjects";
-import { assert } from "console";
 
 // Locators for app insurance application
 const PageLocators = {

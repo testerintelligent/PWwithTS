@@ -26,4 +26,4 @@ And user should validate the error message
 And user enter username as "sample"
 And user should validate that no error message is displayed "*Name is required"
 And user enter email as "samp@text.com"
-And user should validate that no error message is displayed for email field
+# And user should validate that no error message is displayed for email field

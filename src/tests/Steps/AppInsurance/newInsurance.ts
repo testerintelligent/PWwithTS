@@ -1,7 +1,7 @@
 import { Given,Then,When } from "@cucumber/cucumber";
 import { newInsurance } from "../../Pages/AppInsurance/newInsurancePage";
 import { pageObject } from "../../Hooks/PageObjects";
-import { assertText, assertURL, sendkeys } from "../../Helper/Actions";
+import { assertText, assertTextDisable, assertURL, sendkeys } from "../../Helper/Actions";
 import { send } from "process";
 
 let newInsurancePage:newInsurance;
@@ -27,3 +27,35 @@ When('User enters the personal detail {string} {string} {string} {string} {strin
   Then('Submit the details and check whether policy is created', async function () {
      await newInsurancePage.submit();
 });
+
+Then('check whether policy is created', async function () {
+    await newInsurancePage.assertPolicyCreated();
+});
+
+When('click on submit button without entering the details', async function () {
+    await newInsurancePage.submit();
+  });
+
+  When('user should validate the error message', async function () {
+    await newInsurancePage.fieldValidation();
+  });
+
+  When('user enter username as {string}', async function (name:string) {
+
+
+  
+  });
+
+  When('user should validate that no error message is displayed {string}', async function(fieldname:any) {
+    
+  });
+
+  When('user enter email as {string}', async function (email:string) {
+
+ 
+ 
+ });
+
+ When('user should validate that no error message is displayed for email field', async function(fieldname:any) {
+  
+ });

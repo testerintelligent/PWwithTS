@@ -111,6 +111,12 @@ export async function responseHeaders(response:any){
 
 export async function assertText(Webelement:string,text:string){
     await expect(pageObject.page.locator(Webelement)).toHaveText(text);
+   
+}
+
+export async function assertTextDisable(Webelement:string,text:any){
+    await expect(pageObject.page.locator(Webelement)).not.toContainText(text);
+   
 }
 
 export async function cookieVerification(){

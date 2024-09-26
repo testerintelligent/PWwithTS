@@ -37,7 +37,7 @@ async navigate():Promise<any>{
     launchURL(url);
 }
 
-//Logn Page steps
+//Login Page steps
 async loginPage(username:string,password:string)
 {
     await clickAndSendkeys(PageLocators.userName,username);
@@ -45,34 +45,42 @@ async loginPage(username:string,password:string)
     await toClick(PageLocators.submit);
 }
 
+// Entering Username
 async entername(username:string){
     await clickAndSendkeys(PageLocators.insurerName,username);
 }
 
+// Entering Email
 async enterEmail(email:string){
     await clickAndSendkeys(PageLocators.insurerEmail,email);
 }
 
+// Entering Address
 async enterAddress(address:string){
     await clickAndSendkeys(PageLocators.insurerAddress,address);
 }
 
+// Entering Date of Birth
 async enterdob(dob:string){
     await clickAndSendkeys(PageLocators.insurerDateofBirth,dob);
 }
 
+// Selecting Gender
 async entergender(gender:string){
     await clickAndSendkeys(PageLocators.insurerGendermale,gender);
 }
 
+//Selecting PolicyType
 async enterpolicyType(policyType:string){
     await clickAndSendkeys(PageLocators.policyType3,policyType);
 }
 
+//Select SumInsured Value
 async enterSumInsured(sumInsured:string){
     await clickAndSendkeys(PageLocators.sumInsured,sumInsured);
 }
 
+//Entering Premium Value
 async enterPremium(premium:string){
     await clickAndSendkeys(PageLocators.premium,premium);
 }

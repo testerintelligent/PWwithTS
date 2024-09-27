@@ -17,6 +17,6 @@ Feature:Automationdemo_Registration
          Examples:
              |Email              |
              |magesh@208gmail.com|
-             |678@gmail.com      |
-             |@gmail.com         |
-             |@com               |   
+             |678@gmail.com|
+             |w*cd@gmail.com|
+             |sadwe@com|   

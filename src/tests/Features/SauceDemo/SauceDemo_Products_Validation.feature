@@ -8,4 +8,9 @@ Background:
 
 @jaishree_Web_Productverification
 Scenario: Validation of maximum and minimum price products in saucedemo application
-    And verify the product item
+    And Add first product to chart
+    And second product to chart
+    And third product to chart
+    And Enter the checkout Information
+    Then validate the final Premium
+    

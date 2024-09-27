@@ -1,5 +1,5 @@
 import { expect, Page } from "@playwright/test";
-import { assertURL, clickAndSendkeys, launchURL, toClick } from "../../../Helper/Actions";
+import { assertText, assertURL, clickAndSendkeys, launchURL, toClick } from "../../../Helper/Actions";
 import { pageObject } from "../../../Hooks/PageObjects";
 
 
@@ -11,39 +11,56 @@ export class productCheckingPage{
 //Change all the locators into private to implement Encapsulation
 private PageLocators={
     selectItem:"(//*[@class='inventory_item_name'])[1]",
-    addToCartButton:"(//button[@class='btn_primary btn_inventory'])[1]",
-    CartButton:"//a[@class='shopping_cart_link fa-layers fa-fw']",
-   
+    firstProduct:"(//button[@class='btn_primary btn_inventory'])[1]",
+    secondProduct:"(//button[@class='btn_primary btn_inventory'])[2]",
+    thirdProduct:"(//button[@class='btn_primary btn_inventory'])[3]",
+    checkoutCart:"//a[@class='shopping_cart_link fa-layers fa-fw']", 
+    checkoutButton:"//a[@class='btn_action checkout_button']",
+    firstName:"//input[@id='first-name']",
+    lastName:"//input[@id='last-name']",
+    postcode:"//input[@id='postal-code']",
+    continue:"//input[@class='btn_primary cart_button']",
+    finish:"//a[@class='btn_action cart_button']",
+    compareCartValue:"//div[@class='summary_subtotal_label' and contains(text(), 'Item total:')]",
+    confirmationMessage:"//h2[text()='THANK YOU FOR YOUR ORDER']"
 }
-    firstProduct:string="";
-    secondProduct:string="";
+    
     //public Methods for implement functionalities
     async inventoryURL():Promise<any>{
        await launchURL("https://www.saucedemo.com/v1/inventory.html")
     }
 
-    async selectTheItem():Promise<any>{
-     this.firstProduct = await pageObject.page.locator(this.PageLocators.selectItem).innerText()
-     console.log(" product:"+this.firstProduct)
+    async addFirstProduct():Promise<any>{
+        await toClick(this.PageLocators.firstProduct);
     }
 
-    async addTheProduct():Promise<any>{
-        await toClick(this.PageLocators.addToCartButton);
-        await toClick(this.PageLocators.CartButton);
+    async addSecondProduct()
+    {
+        await toClick(this.PageLocators.secondProduct);
     }
 
-    async itemInCart():Promise<any>{
-        this.secondProduct = await pageObject.page.locator(this.PageLocators.selectItem).innerText()
-        console.log(" product:"+this.secondProduct)       
-        } 
+    async addThirdProduct()
+    {
+        await toClick(this.PageLocators.thirdProduct);
+    }
 
-    async itemComparison():Promise<any>{
-            if(this.firstProduct==this.secondProduct)
-            {
-                console.log("Both are same");
-            }
-    else{
-        console.log("Not equal");
-    }            
- }    
+    async checkout()
+    {
+        await toClick(this.PageLocators.checkoutCart);
+        await toClick(this.PageLocators.checkoutButton);
+    }
+    async Details()
+    {
+        await clickAndSendkeys(this.PageLocators.firstName,"sample");
+        await clickAndSendkeys(this.PageLocators.lastName,"demo");
+        await clickAndSendkeys(this.PageLocators.postcode,"123456");
+        await toClick(this.PageLocators.continue);
+      
+    }
+    async finalValidation()
+    {
+        await assertText(this.PageLocators.compareCartValue,"Item total: $53.97");
+        await toClick(this.PageLocators.finish);
+        await assertText(this.PageLocators.confirmationMessage,"THANK YOU FOR YOUR ORDER");
+    }
 }

@@ -5,7 +5,6 @@ Scenario Outline: Login Creation
 Given User launch the page
 When user enter '<username>' and '<password>'
 Then user '<not>' able to navigate home page
-# And Logout the application
 
 Examples:
 |username           |password |not|

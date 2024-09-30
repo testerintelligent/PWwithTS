@@ -37,6 +37,11 @@ Given('User Launch the URL', async function () {
    await Register.passwordField();
   });
 
+  //Steps for validating error messages
+  Given('Click Next without entering the details and Validate the message', async function () {
+  await Register.clickNextButton();
+  await Register.fieldValidate();
+  });
 
 // Method for validating text in registration page 
 

@@ -11,3 +11,4 @@ Examples:
 |username     |password    |not|
 |standard_user|secret_sauce|Yes|
 |demo         |1234        |No |
+|sample       |p@ssw0rd    |No |

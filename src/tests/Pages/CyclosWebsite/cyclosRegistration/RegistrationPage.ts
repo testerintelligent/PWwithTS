@@ -1,5 +1,5 @@
 import { expect, Page } from "@playwright/test";
-import {toClick,launchURL,sendkeys, assertText} from "../../../Helper/Actions";
+import {toClick,launchURL,sendkeys, assertText, clickAndSendkeys} from "../../../Helper/Actions";
 import { pageObject } from "../../../Hooks/PageObjects";
 
 
@@ -14,6 +14,8 @@ private PageLocators={
     emailTextBox:"(//input[@type='text'])[3]",
     genderRadioButton: "//label[text()=' Female ']",
     nextButon:"//span[text()='Next']",
+    password:"(//input[@type='password'])[1]",
+    confirmPassword:"(//input[@type='password'])[2]",
     nameRegisterText:"//div[@class='title-text flex-grow-1 d-flex align-items-center']"
  }
    
@@ -23,13 +25,13 @@ private PageLocators={
         await launchURL("https://demo.cyclos.org/ui/home");
     }
 
-    async enterMandatoryDetails():Promise<any>{
+    async enterMandatoryDetails(username:string,loginname:string,emailid:any){
         // await toClick(PageLocators.nameTextBox);
-        await sendkeys(this.PageLocators.nameTextBox,"Jeya");
+        await sendkeys(this.PageLocators.nameTextBox,username);
         // await toClick(PageLocators.loginNameTextBox);
-        await sendkeys(this.PageLocators.loginNameTextBox,"Jeyagandhi");
+        await sendkeys(this.PageLocators.loginNameTextBox,loginname);
         // await toClick(PageLocators.emailTextBox);
-        await sendkeys(this.PageLocators.emailTextBox,"aaa@gmail.com");
+        await sendkeys(this.PageLocators.emailTextBox,emailid);
         await toClick(this.PageLocators.genderRadioButton);
       
     }
@@ -41,6 +43,12 @@ private PageLocators={
     async clickNextButton():Promise<any>
     {
         await toClick(this.PageLocators.nextButon);
+    }
+
+    async passwordField()
+    {
+        await clickAndSendkeys(this.PageLocators.password,"demo");
+        await clickAndSendkeys(this.PageLocators.confirmPassword,"demo");
     }
 
     async comparePage():Promise<any>

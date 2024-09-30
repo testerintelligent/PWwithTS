@@ -20,8 +20,8 @@ Given('User Launch the URL', async function () {
 
 // Method for filling mandatory details
 
-  Given('Enter the mandatory details', async function () {
-    await Register.enterMandatoryDetails();
+  Given('Enter {string} {string} {string} mandatory details', async function (username,loginname,emailid) {
+    await Register.enterMandatoryDetails(username,loginname,emailid);
   });
 
 // Method for clicking next and confirmation in registration page 
@@ -30,6 +30,13 @@ Given('User Launch the URL', async function () {
    await Register.clickNextButton();
    console.log("Next Page");
   });
+
+
+  //emter password
+  Given('add Password field', async function () {
+   await Register.passwordField();
+  });
+
 
 // Method for validating text in registration page 
 

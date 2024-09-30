@@ -22,6 +22,8 @@ Given('User Launch the URL', async function () {
 
   Given('Enter {string} {string} {string} mandatory details', async function (username,loginname,emailid) {
     await Register.enterMandatoryDetails(username,loginname,emailid);
+  Given('Enter {string} {string} {string} mandatory details', async function (username,loginname,emailid) {
+    await Register.enterMandatoryDetails(username,loginname,emailid);
   });
 
 // Method for clicking next and confirmation in registration page 

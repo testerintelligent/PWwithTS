@@ -19,7 +19,6 @@ private PageLocators={
  }
    
     // Web interaction methods for Registration page
-
     async navigate():Promise<any>{  
         await launchURL("https://demo.cyclos.org/ui/home");
     }

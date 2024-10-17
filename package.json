@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "cucumber-js test",
-    "test1": "cucumber-js test --tags  @magesh_Web_Login @jeyagandhi_MarketCyclos"
+    "test1": "cucumber-js test --tags  @jeyagandhi_MarketCyclos"
   },
   "keywords": [],
   "author": "",

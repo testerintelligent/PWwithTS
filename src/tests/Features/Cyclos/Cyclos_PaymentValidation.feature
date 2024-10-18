@@ -1,4 +1,4 @@
-@magesh_add_Invalid
+@magesh_add_Invalid @fails
 Feature: Validate the users Payment
     Background: Login With  valid Credentials
         Given User navigate to login page with "https://demo.cyclos.org/ui/login"

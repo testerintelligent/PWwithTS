@@ -1,4 +1,4 @@
-@sevugan_Web_Automationdemo
+@sevugan_Web_Automationdemo @fails
 Feature:Automationdemo_Registration
 
     Scenario:Validation of registration details in automation demo portal

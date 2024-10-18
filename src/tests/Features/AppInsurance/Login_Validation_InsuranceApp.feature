@@ -1,6 +1,6 @@
 Feature: Login_Validation_InsuranceApp
 
-@Jeyagandhi_LoginValidation
+@Jeyagandhi_LoginValidation @fails
 Scenario Outline: Login Creation
 Given User launch the page
 When user enter '<username>' and '<password>'

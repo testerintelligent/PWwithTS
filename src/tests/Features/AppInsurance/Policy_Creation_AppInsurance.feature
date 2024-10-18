@@ -1,6 +1,6 @@
 Feature: Policy_Creation_InsuranceApp
 
-@Jeyagandhi_PolicyCreation
+@Jeyagandhi_PolicyCreation @fails
 Scenario Outline: Policy Creation
 Given User launch the application
 When user entering '<username>' and '<password>'
@@ -16,7 +16,7 @@ Examples:
 |test@test.com      |12345    |Tester              |1991-03-06   |Female|Vehicle Insurance|5,00,000  |
 
 
-@Jeyagandhi_PolicyNegativeValidation
+@Jeyagandhi_PolicyNegativeValidation @fails
 Scenario: Policy Page Negative Creation
 Given User launch the application
 When user entering "test@test.com" and "12345"

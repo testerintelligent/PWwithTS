@@ -20,7 +20,7 @@ private PageLocators={
    nextButton:"//*[@class='d-inline-block button']",
    confirmButton:"//*[@type='button']//span[text()='Confirm']"
 }
- 
+   await page.waitForTimeout(2000);
     async MarketPlaceButton():Promise<any>{
         await toClick(this.PageLocators.marketPlaceButton);
      }

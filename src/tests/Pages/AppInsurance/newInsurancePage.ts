@@ -4,7 +4,7 @@ import {  assertText, assertTextDisable, clickAndSendkeys, launchURL, select, to
 const PageLocators = {
     userName:"//input[@id='username']",
     password:"//input[@id='Password']",
-    submit:"//button[@class='loginButton']",
+    submit:"//button[normalize-space()='Submit']",
     newInsurance:"//a[@href='/insurance']",
     insurerName:"//input[@id='Name']",
     insurerEmail:"//input[@id='email']",
@@ -17,7 +17,7 @@ const PageLocators = {
     policyType3:"//input[@value='Vehicle Insurance ']",
     sumInsured:"//select[@name='SumInsured']",
     premium:"//input[@id='Premium']",
-    submitPolicy:"//button[@type='submit']",
+    submitPolicy:"//button[normalize-space()='Register']",
     policyConfirmation:"//p[text()='Insurance policy created successfully.']",
     nameFieldMessage:"//p[text()='*Name is required']",
     emailFieldMessage:"//p[text()='*Email is required']",

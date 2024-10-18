@@ -7,7 +7,6 @@ const PageLocators = {
     userName:"//input[@id='username']",
     newInsurance:"//button[@type='submit']",
     password:"//input[@id='Password']",
-    //submit:"//button[@class='loginButton']",
     submit:"//button[normalize-space()='Submit']",
     homePageText:"//th[text()='Delete Record']",
     loginErrorMessage:"//p[text()='Invalid username or password']",

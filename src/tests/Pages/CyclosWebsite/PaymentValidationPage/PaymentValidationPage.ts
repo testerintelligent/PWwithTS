@@ -14,6 +14,7 @@ export class PaymentValidation{
         confirmButton:"//*[@type='button']//span[text()='Confirm']"
     }
     //public methods to implement functionalities
+    await page.waitForTimeout(2000);
     async ClickPayUserButton():Promise<any>{
         await toClick(this.PageLocators.payButton);
      }

@@ -32,9 +32,11 @@ export class cyclosloginPage{
       pagetLogoText:"(//div[@class='top-title'])[2]",
   }
   //Public methos to access all the locators and implement functionalities
-    async navigate(URL:string):Promise<any>{  
+  await page.waitForTimeout(2000);  
+  async navigate(URL:string):Promise<any>{  
         await launchURL(URL);
     }
+    await page.waitForTimeout(2000);
     async enterUsername(username:string):Promise<any>{
         await clickAndSendkeys(this.PageLocators.usernameInputfield,username);
     }

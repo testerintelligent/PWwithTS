@@ -34,7 +34,7 @@ export class cyclosloginPage{
   //Public methos to access all the locators and implement functionalities
  
   async navigate(URL:string):Promise<any>{  
-    await page.waitForTimeout(2000);  
+
         await launchURL(URL);
     }
     await page.waitForTimeout(2000);

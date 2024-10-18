@@ -22,7 +22,6 @@ private PageLocators={
 }
    
     async MarketPlaceButton():Promise<any>{
-      await page.waitForTimeout(2000);  
       await toClick(this.PageLocators.marketPlaceButton);
      }
 

@@ -32,8 +32,9 @@ export class cyclosloginPage{
       pagetLogoText:"(//div[@class='top-title'])[2]",
   }
   //Public methos to access all the locators and implement functionalities
-  await page.waitForTimeout(2000);  
+ 
   async navigate(URL:string):Promise<any>{  
+    await page.waitForTimeout(2000);  
         await launchURL(URL);
     }
     await page.waitForTimeout(2000);

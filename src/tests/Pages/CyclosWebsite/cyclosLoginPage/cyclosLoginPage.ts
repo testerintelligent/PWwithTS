@@ -37,7 +37,7 @@ export class cyclosloginPage{
 
         await launchURL(URL);
     }
-    await page.waitForTimeout(2000);
+
     async enterUsername(username:string):Promise<any>{
         await clickAndSendkeys(this.PageLocators.usernameInputfield,username);
     }

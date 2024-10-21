@@ -7,6 +7,7 @@ let Cyclosloginpage:cyclosloginPage;
 
   Given('User navigate to login page with {string}', async function (Url:string) {
     Cyclosloginpage=new cyclosloginPage();
+  
   });
   
   // Fill login crdentials method for cyclos login page

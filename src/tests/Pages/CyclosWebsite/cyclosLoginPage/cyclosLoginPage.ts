@@ -29,7 +29,7 @@ export class cyclosloginPage{
       passwordInputField:"[type='password']",
       loginButton:"//*[text()='Submit']",
       invalidMessage:"//div[@class='notification-message']",
-      pagetLogoText:"(//div[@class='top-title'])[2]",
+      pagetLogoText:"(//div[contains(text(),'Quick access')]", //check for Quick Access text inside Homepage after login
   }
   //Public methos to access all the locators and implement functionalities
  

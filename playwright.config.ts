@@ -12,7 +12,6 @@ import { defineConfig, devices,test } from '@playwright/test';
  */
 export default defineConfig({
 
-
   test.beforeEach(async ({ page }, testInfo) => {
     testInfo.setTimeout(testInfo.timeout + 20000); // Extend timeout by 20 seconds
   });

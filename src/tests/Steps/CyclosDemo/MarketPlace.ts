@@ -3,6 +3,10 @@ import { cyclosMarketPlacePage } from "../../Pages/CyclosWebsite/cyclosMarketPla
 import { pageObject } from "../../Hooks/PageObjects";
 let Cyclosmarketplacepage:cyclosMarketPlacePage;
 
+
+const { setDefaultTimeout } = require('@cucumber/cucumber');
+setDefaultTimeout(60 * 1000); // 60 seconds
+
 // Method for navigate to cyclos market place page
 
 Given('I navigate to the marketplace', async function () {

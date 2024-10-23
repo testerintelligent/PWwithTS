@@ -3,7 +3,11 @@ import { cyclosloginPage } from "../../Pages/CyclosWebsite/cyclosLoginPage/cyclo
 import { pageObject } from "../../Hooks/PageObjects";
 let Cyclosloginpage:cyclosloginPage;
 
-  // Navigate login page method for cyclo login page
+
+const { setDefaultTimeout } = require('@cucumber/cucumber');
+setDefaultTimeout(60 * 1000); // 60 seconds
+
+ // Navigate login page method for cyclo login page
 
   Given('User navigate to login page with {string}', async function (Url:string) {
     Cyclosloginpage=new cyclosloginPage();

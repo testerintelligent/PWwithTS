@@ -11,7 +11,7 @@ let Cyclosloginpage:cyclosloginPage;
   });
   
   // Fill login crdentials method for cyclos login page
-
+  
   Given('Enter the username and password {string} and {string}', async function (username, password) {
     await Cyclosloginpage.enterUsername(username);
     await Cyclosloginpage.enterPassword(password);

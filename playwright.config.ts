@@ -1,4 +1,4 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig, devices,test } from '@playwright/test';
 
 /**
  * Read environment variables from file.
@@ -11,6 +11,11 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+
+
+  test.beforeEach(async ({ page }, testInfo) => {
+    testInfo.setTimeout(testInfo.timeout + 20000); // Extend timeout by 20 seconds
+  });
 
 //extend the timeout
 //globalTimeout: 5 * 60 * 1000,

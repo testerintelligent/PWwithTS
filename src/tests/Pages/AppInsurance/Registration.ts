@@ -26,7 +26,7 @@ const PageLocators = {
     sumInsured:"//select[@name='SumInsured']",
     registerPageText:"//h3[text()='Create an Account']",
     premiumAmount:"//input[@id='Premium']",
-    registerSubmit:"//button[@class='registerButton']",
+    registerSubmit:"//button[normalize-space()='Register']",
     assertInsSubmit:"//p[text()='Insurance policy created successfully.']",
     registerLink:"//a[@href='/register']",
     registerSuccessfulMessage:"//div[@class='success-message']//h2[text()='Registration successful!']"

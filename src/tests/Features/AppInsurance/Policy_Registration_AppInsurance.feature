@@ -1,6 +1,6 @@
 Feature: Policy_Registration_AppInsurance
 
-@Jeyagandhi_RegisterPolicy @fails
+@Jeyagandhi_RegisterPolicy @fails @REG
 Scenario: Account Creation for AppInsurance
 Given User launch the page and navigate to register page
 When User enter the details

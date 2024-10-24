@@ -1,6 +1,6 @@
 Feature: Policy_Creation_InsuranceApp
 
-@Jeyagandhi_PolicyCreation @fails
+@Jeyagandhi_PolicyCreation @fails @REG
 Scenario Outline: Policy Creation
 Given User launch the application
 When user entering '<username>' and '<password>'

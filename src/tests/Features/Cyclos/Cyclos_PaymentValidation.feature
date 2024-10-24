@@ -1,5 +1,5 @@
 @magesh_add_Invalid @fails
-Feature: Validate the users Payment
+Feature: Cyclos_Validate the users Payment
     Background: Login With  valid Credentials
         Given User navigate to login page with "https://demo.cyclos.org/ui/login"
         And Enter the username and password "demo" and "1234"

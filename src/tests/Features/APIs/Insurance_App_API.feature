@@ -1,6 +1,6 @@
 Feature: Insurance_App_API
 
-@sevugan_API_appInsurance @fails
+@sevugan_API_appInsurance @fails @REG
 Scenario Outline: Test Insurance App API - E2E Functionality
     Given Test Login functionality for insurance app "http://192.168.99.141:5000/home"
     When Issue policy from insurance app "http://192.168.99.141:5000/Dashboard" with "<Name>","<Gender>", "<Email>", "<Address>", "<DateOfBirth>", "<PolicyType>", "<SumInsured>" and "<Premium>"

@@ -7,7 +7,7 @@
     "test": "cucumber-js test",
     "test1": "cucumber-js test --tags @Jeyagandhi_LoginValidation",
     "failedTC": "cucumber-js test --tags  @fails",
-    "REGTC": "cucumber-js test --tags  @REG",
+    "REGTC": "cucumber-js test --tags  @REG"
   },
   "keywords": [],
   "author": "",
